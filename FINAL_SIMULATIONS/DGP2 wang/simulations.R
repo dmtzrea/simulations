@@ -253,7 +253,7 @@ for(link in c("exp", "quad", "id", "abs")){
   ggsave(plot = sigmas %>%
   filter(type %in% c("true sigma", link), dataset == k, degree %in% c(2, 3, 4, 5, 6, 7, 8, 9)) %>% 
   ggplot(aes(x = x, y = sigma, group = iter)) +
-  geom_line(color = 'gray') +
+  geom_line(color = 'gray', size = 0.1) +
   facet_wrap(degree~., ncol = 2, labeller = labeller(degree = labs)) +
   geom_line(data = sigmas %>% filter(type == 'true sigma') %>%
               select(-degree), aes(x = x, y = sigma), color = 'black') +
