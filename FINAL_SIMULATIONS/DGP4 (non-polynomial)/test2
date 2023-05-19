@@ -485,3 +485,179 @@ Warning messages:
 7: package 'quantreg' was built under R version 4.1.3 
 8: package 'survival' was built under R version 4.1.3 
 Execution halted
+starting worker pid=9944 on localhost:11558 at 17:10:42.554
+starting worker pid=15016 on localhost:11558 at 17:10:42.855
+starting worker pid=13292 on localhost:11558 at 17:10:43.092
+starting worker pid=1368 on localhost:11558 at 17:10:43.334
+Loading required package: cubature
+Loading required package: cubature
+Loading required package: cubature
+Loading required package: SimplicialCubature
+Loading required package: SimplicialCubature
+Loading required package: mvmesh
+Loading required package: mvmesh
+Loading required package: rcdd
+Loading required package: rcdd
+Loading required package: cubature
+If you want correct answers, use rational arithmetic.
+See the Warnings sections in help pages for
+    functions that do computational geometry.
+Loading required package: rgl
+Loading required package: SimplicialCubature
+Loading required package: mvmesh
+Loading required package: rcdd
+If you want correct answers, use rational arithmetic.
+See the Warnings sections in help pages for
+    functions that do computational geometry.
+Loading required package: rgl
+Loading required package: SimplicialCubature
+Loading required package: mvmesh
+Loading required package: rcdd
+If you want correct answers, use rational arithmetic.
+See the Warnings sections in help pages for
+    functions that do computational geometry.
+Loading required package: rgl
+Loading required package: geometry
+Loading required package: geometry
+Loading required package: geometry
+Loading required package: ttutils
+Loading required package: ttutils
+Loading required package: ttutils
+Loading required package: ttutils
+Loading required package: SparseM
+Loading required package: SparseM
+Loading required package: SparseM
+Loading required package: SparseM
+
+Attaching package: 'SparseM'
+
+The following object is masked from 'package:base':
+
+    backsolve
+
+
+Attaching package: 'SparseM'
+
+The following object is masked from 'package:base':
+
+    backsolve
+
+
+Attaching package: 'SparseM'
+
+The following object is masked from 'package:base':
+
+    backsolve
+
+
+Attaching package: 'SparseM'
+
+The following object is masked from 'package:base':
+
+    backsolve
+
+
+Attaching package: 'survival'
+
+The following object is masked from 'package:quantreg':
+
+    untangle.specials
+
+
+Attaching package: 'survival'
+
+The following object is masked from 'package:quantreg':
+
+    untangle.specials
+
+
+Attaching package: 'survival'
+
+The following object is masked from 'package:quantreg':
+
+    untangle.specials
+
+
+Attaching package: 'survival'
+
+The following object is masked from 'package:quantreg':
+
+    untangle.specials
+
+Step  1  of  500  from simulation   21   of   tep  500h =    1 of  
+rom simulation  5001   from simulation    2h =    1  
+=  1 
+Step  2  of  500  from simulation  2   h =  1 
+Step  1  of  500  from simulation  3   h =  1 
+Step  2  of  500  from simulation  3   h =  1 
+Step  1  of  500  from simulation  4   h =  1 
+Step  2  of  500  from simulation  4   h =  1 
+Step  1  of  500 tep  from simulation 2  of  500  from simulation  1  Step   =  2Step   
+2 of   of 500500 from simulation  from simulation  2    = h =  2 
+
+1   h =  2 
+Step  1  of  500  from simulation  3   h =  2 
+Step  2  of  500  from simulation  3   h =  2 
+Step  1  of  500  from simulation  4   h =  2 
+Step  2  of  500  from simulation  4   h =  2 
+Step  1 Step   5002   of m simulation  1500  Step simulation   1 =    3 of 
+500 Step  from simulation   = 2   of   
+h =  003 from simulation 
+2   h =  3 
+Step  1  of  500  from simulation  3   h =  3 
+Step  2  of  500  from simulation  3   h =  3 
+Step  1  of  500  from simulation  4   h =  3 
+Step  2  of  500  from simulation  4   h =  3 
+Step  1  of   2Step  of  1500  from simulation  100   from simulation  S ep  h =    4  of 
+400  from simulation 520  from simulation  1 =    h =  4 
+Step  1  of  500  from simulation  3   h =  4 
+Step  2  of  500  from simulation  3   h =  4 
+Step  1  of  500  from simulation  4   h =  4 
+Step  2  of  500  from simulation  4   h =  4 
+Step  1  of  Step  00 2 from simulation  of  500   tep  from simulation h =  1  of  
+500 Step    2rom simulation   
+ of  500  from simulation  2 
+ h =  5 
+Step  1  of  500  from simulation  3   h =  5 
+Step  2  of  500  from simulation  3   h =  5 
+Step  1  of  500  from simulation  4   h =  5 
+Step  2  of  500  from simulation  4   h =  5 
+Step  1 Step  2500 of  from simulation 510 tep    of  simulation  500  of 6from simulation  002 = 
+  from simulation 62
+=   h =  
+6 
+Step  1  of  500  from simulation  3   h =  6 
+Step  2  of  500  from simulation  3   h =  6 
+Step  1  of  500  from simulation  4   h =  6 
+Step  2  of  500  from simulation  4   h =  6 
+Step  1  of  Step 500  2 from simulation    of 1  500    from simulation h =  S1ep  1  
+h =  700 Step 
+rom simulation   22   of   500  =  from simulation  2 
+  h =  7 
+Step  1  of  500  from simulation  3   h =  7 
+Step  2  of  500  from simulation  3   h =  7 
+Step  1  of  500  from simulation  4   h =  7 
+Step  2  of  500  from simulation  4   h =  7 
+Step  1  of  Step 500  2 from simulation    of 1   00 h = m simulation Step   11    of  h = 500  8 from simulation Step   
+2   of h = 500  from simulation  
+2   h =  8 
+Step  1  of  500  from simulation  3   h =  8 
+Step  2  of  500  from simulation  3   h =  8 
+Step  1  of  500  from simulation  4   h =  8 
+Step  2  of  500  from simulation  4   h =  8 
+Step  1  of  Step    from simulation 2  1 of     00h =  from simulation  tep  1  
+ of h =  00 9 from simulation   
+2tep    h =  900 
+rom simulation  2   h =  9 
+Step  1  of  500  from simulation  3   h =  9 
+Step  2  of  500  from simulation  3   h =  9 
+Step  1  of  500  from simulation  4   h =  9 
+Step  2  of  500  from simulation  4   h =  9 
+Step  1  of  Step  2from simulation   of  500 h =  from simulation  tep 101 1
+  of   =  500Step  0  from simulation  
+2 of  500  =  from simulation  02 
+  h =  10 
+Step  1  of  500  from simulation  3   h =  10 
+Step  2  of  500  from simulation  3   h =  10 
+Step  1  of  500  from simulation  4   h =  10 
+Step  2  of  500  from simulation  4   h =  10 

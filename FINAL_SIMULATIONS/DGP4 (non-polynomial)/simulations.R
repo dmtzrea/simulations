@@ -254,7 +254,7 @@ for(link in c("exp", "quad", "id", "abs")){
   facet_wrap(degree~., ncol = 2, labeller = labeller(degree = labs)) +
   geom_line(data = sigmas %>% filter(type == 'true sigma') %>%
               select(-degree), aes(x = x, y = sigma), color = 'black') +
-  ylim(c(0,30)) +
+  ylim(c(0,6)) +
   ylab(label = expression(paste(theta, "(", sigma, ")"))) +
   theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
                      panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")),
