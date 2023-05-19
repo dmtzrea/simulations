@@ -8,9 +8,11 @@ library(pracma)
 library(tidyr)
 library(ggplot2)
 library(kableExtra)
+library(here)
 
 ## SET WD  ----
-setwd(dir = "C:/Users/dzr/Documents/KU Leuven PC/Documents/Master Thesis/FINAL_SIMULATIONS/DGP4 (non-polynomial)")
+# sets wd to the path where this script lives
+setwd(dir = dirname(rstudioapi::getSourceEditorContext()$path))
 
 ## Find the number of cores in your system ----
 clno <- detectCores()
