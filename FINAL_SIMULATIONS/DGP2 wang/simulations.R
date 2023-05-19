@@ -221,9 +221,12 @@ sigmas = cbind(x_s, (0.2+2*(x_s-0.5)^2)) %>% as.data.frame() %>% # TRUE SIGMA
   mutate(type = "true sigma", iter = NA, degree = NA, dataset = NA) %>%
   rename(c("x" = "V1", "sigma" = "V2"))
 
+#sample only 100 sigmas (otherwise too slow)
+positions = sample(x = 1:500, size = 100, replace = FALSE)
+
 for(k in 1:nrow(matrix)){
 for(i in 1:10){
-    for(n in 1:N){
+    for(n in positions){
     sigmas_temp = SIGMA_BIG[[k]][[i]][,,n] %>% as.data.frame() %>%
     rename(c("x" = "V1", "exp" = "V2", "quad" = "V3", "id" = "V4", "abs" = "V5")) %>% 
     pivot_longer(cols = exp:abs, names_to = "type", values_to = "sigma") %>% 
@@ -233,6 +236,7 @@ for(i in 1:10){
   sigmas = rbind(sigmas, sigmas_temp)
 }
 }
+  print(k)
 }
 
 
