@@ -9,6 +9,11 @@ library(tidyr)
 library(ggplot2)
 library(kableExtra)
 library(here)
+library(stringr)
+library(geomtextpath)
+library(ggrepel)
+library(ggpubr)
+
 
 ## SET WD  ----
 setwd(dir = dirname(rstudioapi::getSourceEditorContext()$path))
@@ -348,16 +353,88 @@ bias_tables_proposed = bias_tables_proposed  %>%
          ends_with("(abs link)"),
          ends_with("(exp link)"),
          ends_with("(quad link)"))
-  
-table1 = kable(bias_tables_proposed %>% filter(dataset == 1) %>%
-                 select(-dataset, -tau, -n), "latex", booktabs = T)
-table2 = kable(bias_tables_proposed %>% filter(dataset == 2) %>%
-                 select(-dataset, -tau, -n), "latex", booktabs = T) 
-table3 = kable(bias_tables_proposed %>% filter(dataset == 3) %>%
-                 select(-dataset, -tau, -n), "latex", booktabs = T)
-table4 = kable(bias_tables_proposed %>% filter(dataset == 4) %>%
-                 select(-dataset, -tau, -n), "latex", booktabs = T)
 
+dat_tab_bias = bias_tables_proposed %>%
+  select( -tau, -n)
+dat_tab_bias[dat_tab_bias$dataset == 1 & dat_tab_bias$degree == 0,] = 
+  c(0,1, rep(bias_tables_literature %>% filter(dataset == 1, Estimator == 'Laguerre') %>%
+                           select(-dataset, -degree) %>% select(beta_0, beta_1) %>% unname() , 4))
+
+dat_tab_bias[dat_tab_bias$dataset == 2 & dat_tab_bias$degree == 0,] = 
+  c(0,2, rep(bias_tables_literature %>% filter(dataset == 2, Estimator == 'Laguerre') %>%
+               select(-dataset, -degree) %>% select(beta_0, beta_1) %>% unname() , 4))
+
+dat_tab_bias[dat_tab_bias$dataset == 3 & dat_tab_bias$degree == 0,] = 
+  c(0,3, rep(bias_tables_literature %>% filter(dataset == 3, Estimator == 'Laguerre') %>%
+               select(-dataset, -degree) %>% select(beta_0, beta_1) %>% unname() , 4))
+
+dat_tab_bias[dat_tab_bias$dataset == 4 & dat_tab_bias$degree == 0,] = 
+  c(0,4, rep(bias_tables_literature %>% filter(dataset == 4, Estimator == 'Laguerre') %>%
+               select(-dataset, -degree) %>% select(beta_0, beta_1) %>% unname() , 4))
+
+
+  
+table1 = kable(dat_tab_bias %>% filter(dataset == 1) %>% select(-dataset), "latex", booktabs = T)
+table2 = kable(dat_tab_bias %>% filter(dataset == 2) %>% select(-dataset), "latex", booktabs = T) 
+table3 = kable(dat_tab_bias %>% filter(dataset == 3) %>% select(-dataset), "latex", booktabs = T)
+table4 = kable(dat_tab_bias %>% filter(dataset == 4) %>% select(-dataset), "latex", booktabs = T)
+
+# BIAS PLOTS ----
+
+test = dat_tab_bias %>% pivot_longer(cols = starts_with("beta_0"), names_to = "Estimator", values_to = "beta_0") %>%
+  select(degree, dataset, Estimator, beta_0) %>% mutate(Estimator = str_remove(Estimator, "beta_0_"))
+test2 = dat_tab_bias %>% pivot_longer(cols = starts_with("beta_1"), names_to = "Estimator", values_to = "beta_1") %>%
+  select(degree, dataset, Estimator, beta_1) %>% mutate(Estimator = str_remove(Estimator, "beta_1_"))
+test_final = test %>% left_join(test2)
+
+
+
+
+for (k in 1:nrow(matrix)){
+  # compute plots ----
+  bias_beta_0 = test_final %>% filter(dataset == k) %>%
+    ggplot(aes(x = degree, y = abs(beta_0))) +
+    geom_line(aes(group = Estimator, color = Estimator)) + 
+    theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+                       panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")) +
+    ylab(label = "Bias") +
+    geom_hline(data = bias_tables_literature %>%
+                 filter(dataset == k), mapping = aes(yintercept = abs(beta_0)), linetype = 'dashed')  +
+    geom_text_repel(data = bias_tables_literature %>%
+                      filter(dataset == k), aes(
+                        x = 12, y = abs(beta_0), label = Estimator
+                      ),
+                    hjust = 1
+    ) +
+    guides(label = 'none')
+  
+  bias_beta_1 = test_final %>% filter(dataset == k) %>%
+    ggplot(aes(x = degree, y = abs(beta_1))) +
+    geom_line(aes(group = Estimator, color = Estimator)) + 
+    theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+                       panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")) +
+    ylab(label = "Bias") +
+    geom_hline(data = bias_tables_literature %>%
+                 filter(dataset == k), mapping = aes(yintercept = abs(beta_1)), linetype = 'dashed')  +
+    geom_text_repel(data = bias_tables_literature %>%
+                      filter(dataset == k), aes(
+                        x = 12, y = abs(beta_1), label = Estimator
+                      ),
+                    hjust = 1
+    ) +
+    guides(label = 'none')
+  #save plots ----
+ggsave(bias_beta_0,
+path = paste0("PLOTS/"), 
+filename = paste0('Bias_beta_0_', 'quantile_', matrix[k, 'tau'], '_', 
+                  'Sample_size_', matrix[k, 'n'], ".png"), width = 7, height = 5)
+  
+  ggsave(bias_beta_1, path = paste0("PLOTS/"), 
+         filename = paste0('Bias_beta_1_', 'quantile_', matrix[k, 'tau'], '_', 
+                           'Sample_size_', matrix[k, 'n'], ".png"), width = 7, height = 5)
+}
+
+bias_tables_literature
 
 # GENERATE MSE TABLES FOR LATEX FILE ----
 
@@ -437,15 +514,30 @@ mse_tables_proposed = mse_tables_proposed  %>%
          ends_with("(exp link)"),
          ends_with("(quad link)"))
 
-table1 = kable(mse_tables_proposed %>% filter(dataset == 1) %>%
-                 select(-dataset, -tau, -n), "latex", booktabs = T)
-table2 = kable(mse_tables_proposed %>% filter(dataset == 2) %>%
-                 select(-dataset, -tau, -n), "latex", booktabs = T) 
-table3 = kable(mse_tables_proposed %>% filter(dataset == 3) %>%
-                 select(-dataset, -tau, -n), "latex", booktabs = T)
-table4 = kable(mse_tables_proposed %>% filter(dataset == 4) %>%
-                 select(-dataset, -tau, -n), "latex", booktabs = T)
+dat_tab_mse = mse_tables_proposed %>%
+  select( -tau, -n)
+dat_tab_mse[dat_tab_mse$dataset == 1 & dat_tab_mse$degree == 0,] = 
+  c(0,1, rep(mse_tables_literature %>% filter(dataset == 1, Estimator == 'Laguerre') %>%
+               select(-dataset, -degree) %>% select(beta_0, beta_1) %>% unname() , 4))
 
+dat_tab_mse[dat_tab_mse$dataset == 2 & dat_tab_mse$degree == 0,] = 
+  c(0,2, rep(mse_tables_literature %>% filter(dataset == 2, Estimator == 'Laguerre') %>%
+               select(-dataset, -degree) %>% select(beta_0, beta_1) %>% unname() , 4))
+
+dat_tab_mse[dat_tab_mse$dataset == 3 & dat_tab_mse$degree == 0,] = 
+  c(0,3, rep(mse_tables_literature %>% filter(dataset == 3, Estimator == 'Laguerre') %>%
+               select(-dataset, -degree) %>% select(beta_0, beta_1) %>% unname() , 4))
+
+dat_tab_mse[dat_tab_mse$dataset == 4 & dat_tab_mse$degree == 0,] = 
+  c(0,4, rep(mse_tables_literature %>% filter(dataset == 4, Estimator == 'Laguerre') %>%
+               select(-dataset, -degree) %>% select(beta_0, beta_1) %>% unname() , 4))
+
+
+
+table1 = kable(dat_tab_mse %>% filter(dataset == 1) %>% select(-dataset), "latex", booktabs = T)
+table2 = kable(dat_tab_mse %>% filter(dataset == 2) %>% select(-dataset), "latex", booktabs = T) 
+table3 = kable(dat_tab_mse %>% filter(dataset == 3) %>% select(-dataset), "latex", booktabs = T)
+table4 = kable(dat_tab_mse %>% filter(dataset == 4) %>% select(-dataset), "latex", booktabs = T)
 
 
 
