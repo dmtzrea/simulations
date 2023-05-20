@@ -542,3 +542,60 @@ table4 = kable(dat_tab_mse %>% filter(dataset == 4) %>% select(-dataset), "latex
 
 
 
+
+# MSE PLOTS ----
+
+test = dat_tab_mse %>% pivot_longer(cols = starts_with("beta_0"), names_to = "Estimator", values_to = "beta_0") %>%
+  select(degree, dataset, Estimator, beta_0) %>% mutate(Estimator = str_remove(Estimator, "beta_0_"))
+test2 = dat_tab_mse %>% pivot_longer(cols = starts_with("beta_1"), names_to = "Estimator", values_to = "beta_1") %>%
+  select(degree, dataset, Estimator, beta_1) %>% mutate(Estimator = str_remove(Estimator, "beta_1_"))
+test_final = test %>% left_join(test2)
+
+
+
+
+for (k in 1:nrow(matrix)){
+  # compute plots ----
+  mse_beta_0 = test_final %>% filter(dataset == k) %>%
+    ggplot(aes(x = degree, y = abs(beta_0))) +
+    geom_line(aes(group = Estimator, color = Estimator)) + 
+    theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+                       panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")) +
+    ylab(label = "MSE") +
+    geom_hline(data = mse_tables_literature %>%
+                 filter(dataset == k), mapping = aes(yintercept = abs(beta_0)), linetype = 'dashed')  +
+    geom_text_repel(data = mse_tables_literature %>%
+                      filter(dataset == k), aes(
+                        x = 12, y = abs(beta_0), label = Estimator
+                      ),
+                    hjust = 1
+    ) +
+    guides(label = 'none')
+  
+  mse_beta_1 = test_final %>% filter(dataset == k) %>%
+    ggplot(aes(x = degree, y = abs(beta_1))) +
+    geom_line(aes(group = Estimator, color = Estimator)) + 
+    theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+                       panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")) +
+    ylab(label = "MSE") +
+    geom_hline(data = mse_tables_literature %>%
+                 filter(dataset == k), mapping = aes(yintercept = abs(beta_1)), linetype = 'dashed')  +
+    geom_text_repel(data = mse_tables_literature %>%
+                      filter(dataset == k), aes(
+                        x = 12, y = abs(beta_1), label = Estimator
+                      ),
+                    hjust = 1
+    ) +
+    guides(label = 'none')
+  #save plots ----
+  ggsave(mse_beta_0,
+         path = paste0("PLOTS/"), 
+         filename = paste0('MSE_beta_0_', 'quantile_', matrix[k, 'tau'], '_', 
+                           'Sample_size_', matrix[k, 'n'], ".png"), width = 7, height = 5)
+  
+  ggsave(mse_beta_1, path = paste0("PLOTS/"), 
+         filename = paste0('MSE_beta_1_', 'quantile_', matrix[k, 'tau'], '_', 
+                           'Sample_size_', matrix[k, 'n'], ".png"), width = 7, height = 5)
+}
+
+
