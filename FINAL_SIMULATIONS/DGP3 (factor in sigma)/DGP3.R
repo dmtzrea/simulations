@@ -26,16 +26,16 @@ for(k in 1:nrow(matrix)){
     beta <- c(2,1)
 
     epsilon_raw=rnorm(n, mean=0, sd=1) - qnorm(tau, mean= 0 , sd=1)
-    x     <- rnorm(n, mean=0, sd=1)
-    x_f = sample(x = c(1,0), size = n, replace = TRUE, prob = c(0.40, 0.60))
+    x     <- runif(n, min = -1, max = 1)
+    x_f = sample(x = c(1,0), size = n, replace = TRUE, prob = c(0.45, 0.55))
     X     <- matrix(0,ncol=3,nrow=n)
     X[,1] <- 1
     X[,2] <- x
     X[,3] <- x_f
     X_s = as.matrix(X[,2:3])
-    #epsilon <- (ifelse(x_f == 1, cos(X[,2]), 0.5*cos(1.5*X[,2])))*epsilon_raw
-    epsilon <- (case_when(x_f == 1 ~ 1+15*(sqrt((sqrt(1+(X[,2]-0.5)^2)))-1), 
-                          x_f == 0 ~ 1+35*((sqrt(sqrt(1+(X[,2]-0.5)^2)))-1)))*epsilon_raw
+    epsilon <- (ifelse(x_f == 1, 4*cos(X[,2]), 2*cos(1.5*X[,2])))*epsilon_raw
+    #epsilon <- (case_when(x_f == 1 ~ 1+15*(sqrt((sqrt(1+(X[,2]-0.5)^2)))-1), 
+    #                      x_f == 0 ~ 1+35*((sqrt(sqrt(1+(X[,2]-0.5)^2)))-1)))*epsilon_raw
 
     T     <- X[,1:2]%*%beta+epsilon
 

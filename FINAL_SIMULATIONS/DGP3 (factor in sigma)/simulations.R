@@ -91,7 +91,7 @@ for (H in h){
               while(est_abs$objective %in% c(-Inf, Inf)){
                 est_abs = try(laguerre_estimator_het(m,m_tilde,H,X,X_s,type, Y, Delta, tau,trials=32, verbose=0,link=link2))
               }
-              beta_h = laguerre_estimator_het(m,m_tilde,0, X=X,X_s,type, Y=Y, Delta=Delta, tau=tau,trials=32, verbose = 0)$beta
+              beta_h = laguerre_estimator_het(m,m_tilde,0, X=X,X_s,type, Y=Y, Delta=Delta, tau=tau,trials=32, verbose = 0)
               adapted = MMLQR.cens(Y,Delta,X[,2],tau,h=0.5, beta=c(4,5))
               W.W = WW.cens(Y, X[,2], Delta, tau, 0.1)
               W.W_cv = WW.cens(Y, X[,2], Delta, tau, h.WW)
