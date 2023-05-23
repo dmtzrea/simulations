@@ -36,7 +36,7 @@ for(k in 1:nrow(matrix)){
     #epsilon <- ((3.2+3*cos(8*(X[,2]))))*epsilon_raw
     #epsilon <- (4*cos(0.5*(X[,2] - 0.5)))*epsilon_raw
     #epsilon <- (-0.3*X[,2]^2 + 2)*(2.5*cos(0.5*(X[,2])))*epsilon_raw
-    epsilon <- exp(X[,2])*epsilon_raw
+    epsilon <- (exp(2*X[,2]) - exp(-4) + 0.4)*epsilon_raw
 
     T     <- X[,1:2]%*%beta+epsilon
 
