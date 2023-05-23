@@ -1439,25 +1439,3 @@ Step  84  of  500  from simulation  1   h =  1
 Step  85  of  500  from simulation  1   h =  1 
 Step  86  of  500  from simulation  1   h =  1 
 Step  87  of  500  from simulation  1   h =  1 
-Error in unserialize(node$con) : error reading from connection
-Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
-In addition: Error in unserialize(node$con) : error reading from connection
-Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
-There were 50 or more warnings (use warnings() to see the first 50)Error in unseriThere were 50 or more warnings (use warnings() to see the first 50) ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
-
-
-Error in unserialize(node$con) : error reading from connection
-Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
-There were 50 or mIn addition: (use warnings() to see the first 50)Execution halted
-ore warnings (use warnings() to see the first 50)
-There were 50 or more warnings (use warnings() to see the first 50)
-Error in unserialize(node$con) : error reading from connection
-Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
-Execution halted
-Execution halted
-In addition: Error in unserialize(node$con) : error reading from connection
-Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
-In addition: There were 50 or more warnings (use warnings() to see the first 50)
-There were 50 or more warnings (use warnings() to see the first 50)
-Execution halted
-Execution halted

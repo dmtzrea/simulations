@@ -35,7 +35,7 @@ registerDoParallel(cl)
 
 ## LOAD LITERATURE AND DATASETS ----
 source(file = "Loading Literature.R")
-source(file = "DGP5.R")
+source(file = "DGP6.R")
 
 ## Identity link ----
 
