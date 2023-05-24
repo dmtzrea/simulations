@@ -1768,3 +1768,38 @@ ore warnings (use warnings() to see the first 50)
 Execution halted
 Execution halted
 Execution halted
+starting worker pid=6148 on localhost:11007 at 14:19:26.950
+starting worker pid=4340 on localhost:11007 at 14:19:27.182
+starting worker pid=19140 on localhost:11007 at 14:19:27.414
+starting worker pid=15680 on localhost:11007 at 14:19:27.658
+starting worker pid=14944 on localhost:11007 at 14:19:27.889
+starting worker pid=19392 on localhost:11007 at 14:19:28.103
+starting worker pid=6808 on localhost:11007 at 14:19:28.305
+starting worker pid=18216 on localhost:11007 at 14:19:28.493
+starting worker pid=10684 on localhost:11007 at 14:21:14.645
+starting worker pid=2436 on localhost:11007 at 14:21:14.840
+starting worker pid=16008 on localhost:11007 at 14:21:15.055
+starting worker pid=2016 on localhost:11007 at 14:21:15.318
+starting worker pid=17236 on localhost:11007 at 14:21:15.589
+starting worker pid=6532 on localhost:11007 at 14:21:15.819
+starting worker pid=3336 on localhost:11007 at 14:21:16.067
+starting worker pid=14732 on localhost:11007 at 14:21:16.284
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+ze(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
