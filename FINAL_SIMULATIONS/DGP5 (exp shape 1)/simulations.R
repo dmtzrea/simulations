@@ -169,135 +169,139 @@ for(i in 1:10){
 SIGMA_BIG = vector(mode = "list", length = nrow(matrix))
 SIGMA = vector(mode = "list", length = length(h))
 
-N = 2 #CHANGE THIS TO 500 FOR REAL SIMULATION
+N = 500 #CHANGE THIS TO 500 FOR REAL SIMULATION
 links = list("exp", "quad", link, link2)
 
 for(k in 1:nrow(matrix)){
-for(i in 1:10){
-  SIGMA[[i]] = array(dim = c(dim(datasets[[k]])[1], 5, length(1:N)))
-  for(n in 1:N){
-
-    colnames(h_list[[i]]) = NULL
-    rownames(h_list[[i]]) = NULL
-    X_s = as.matrix(datasets[[k]][,2,n])
-    SIGMA[[i]][,1, n] = X_s
-
-    # Compute sigma ----
-    start = (11*length(true_beta)) + 1 #To fetch the H coefficients.
-    start_theta = (11*length(true_beta)) + 4*(i + 1) + 1
-    start_theta_tilde = (11*length(true_beta)) + 4*(i + 1) + 8 + 1
-
-    # LOOP OVER THE SIGMA ESTIMATORS
-    for(l in 1:4){
-    link_temp = links[[l]]
-    H = h_list[[i]][n, start:(start + i), k]
-    start = start + i + 1
-
-    theta = h_list[[i]][n, start_theta:(start_theta + 1), k]
-    start_theta = start_theta + 2
-
-
-    theta_tilde = h_list[[i]][n, start_theta_tilde:(start_theta_tilde + 1), k]
-    start_theta_tilde = start_theta_tilde + 2
-
-
-
-    Her = Her(X_s, deg=i, type=type)
-    if(link_temp == "exp"){
-      sigma = exp(Her%*%H)/exp(1)
+  for(i in 1:10){
+    SIGMA[[i]] = array(dim = c(dim(datasets[[k]])[1], 5, length(1:N)))
+    for(n in 1:N){
+      
+      colnames(h_list[[i]]) = NULL
+      rownames(h_list[[i]]) = NULL
+      X_s = as.matrix(datasets[[k]][,2,n])
+      SIGMA[[i]][,1, n] = X_s
+      
+      # Compute sigma ----
+      start = (11*length(true_beta)) + 1 #To fetch the H coefficients.
+      start_theta = (11*length(true_beta)) + 4*(i + 1) + 1
+      start_theta_tilde = (11*length(true_beta)) + 4*(i + 1) + 8 + 1
+      
+      # LOOP OVER THE SIGMA ESTIMATORS
+      for(l in 1:4){
+        link_temp = links[[l]]
+        H = h_list[[i]][n, start:(start + i), k]
+        start = start + i + 1
+        
+        theta = h_list[[i]][n, start_theta:(start_theta + 1), k]
+        start_theta = start_theta + 2
+        
+        
+        theta_tilde = h_list[[i]][n, start_theta_tilde:(start_theta_tilde + 1), k]
+        start_theta_tilde = start_theta_tilde + 2
+        
+        
+        
+        Her = Her(X_s, deg=i, type=type)
+        if(link_temp == "exp"){
+          sigma = exp(Her%*%H)/exp(1)
+        }
+        
+        if(link_temp=="quad"){
+          sigma = (Her%*%H)^2
+        }
+        
+        if (link_temp!="exp" & link_temp!="quad"){
+          sigma = as.vector(unlist(lapply(link_temp, function(f) f(Her%*%H))[1]))
+          dsigma = as.vector(unlist(lapply(link_temp, function(f) f(Her%*%H))[2]))
+        }
+        sigma = sigma*sqrt(laguerre_var(theta, theta_tilde, matrix[k, 'tau']))
+        
+        SIGMA[[i]][,l + 1, n] = sigma
+        
+      }
+      
+      
+      
+      
     }
-
-    if(link_temp=="quad"){
-      sigma = (Her%*%H)^2
-    }
-
-    if (link_temp!="exp" & link_temp!="quad"){
-      sigma = as.vector(unlist(lapply(link_temp, function(f) f(Her%*%H))[1]))
-      dsigma = as.vector(unlist(lapply(link_temp, function(f) f(Her%*%H))[2]))
-    }
-    sigma = sigma*sqrt(laguerre_var(theta, theta_tilde, matrix[k, 'tau']))
-
-    SIGMA[[i]][,l + 1, n] = sigma
-
-    }
-
-
-
-
-}
-}
-
+  }
+  
   SIGMA_BIG[[k]] = SIGMA
 }
 
 # Arrange sigmas in a dataframe
 x_s  = as.matrix(datasets[[1]][,2,1])
-sigmas = cbind(x_s, (4*cos(1.5*(x_s)))) %>% as.data.frame() %>% # TRUE SIGMA
+sigmas = cbind(x_s, (exp(x_s))) %>% as.data.frame() %>% # TRUE SIGMA 
   mutate(type = "true sigma", iter = NA, degree = NA, dataset = NA) %>%
   rename(c("x" = "V1", "sigma" = "V2"))
 
-for(k in 1:nrow(matrix)){
-for(i in 1:10){
-    for(n in 1:N){
-    sigmas_temp = SIGMA_BIG[[k]][[i]][,,n] %>% as.data.frame() %>%
-    rename(c("x" = "V1", "exp" = "V2", "quad" = "V3", "id" = "V4", "abs" = "V5")) %>%
-    pivot_longer(cols = exp:abs, names_to = "type", values_to = "sigma") %>%
-    mutate(iter = n, degree = i, dataset = k) %>%
-    arrange(type, x)
+#sample only 100 sigmas (otherwise too slow)
+positions = sample(x = 1:500, size = 100, replace = FALSE)
 
-  sigmas = rbind(sigmas, sigmas_temp)
-}
-}
+for(k in 1:nrow(matrix)){
+  for(i in 1:10){
+    for(n in positions){
+      sigmas_temp = SIGMA_BIG[[k]][[i]][,,n] %>% as.data.frame() %>%
+        rename(c("x" = "V1", "exp" = "V2", "quad" = "V3", "id" = "V4", "abs" = "V5")) %>% 
+        pivot_longer(cols = exp:abs, names_to = "type", values_to = "sigma") %>% 
+        mutate(iter = n, degree = i, dataset = k) %>% 
+        arrange(type, x)
+      
+      sigmas = rbind(sigmas, sigmas_temp)
+    }
+  }
+  print(k)
 }
 
 
 # PLOT AND SAVE IMAGES
 # New facet label names for degree variable
-labs <- c("Legendre degree 2", "Legendre degree 3", "Legendre degree 4",
-               "Legendre degree 5", "Legendre degree 6", "Legendre degree 7",
-               "Legendre degree 8", "Legendre degree 9")
+labs <- c("Chebyshev degree 2", "Chebyshev degree 3", "Chebyshev degree 4",
+          "Chebyshev degree 5", "Chebyshev degree 6", "Chebyshev degree 7",
+          "Chebyshev degree 8", "Chebyshev degree 9")
 names(labs) <- c("2", "3", "4", "5", "6", "7", "8", "9")
 
 
 for(link in c("exp", "quad", "id", "abs")){
   for(k in 1:4){
-  ggsave(plot = sigmas %>%
-  filter(type %in% c("true sigma", link), dataset == k, degree %in% c(2, 3, 4, 5, 6, 7, 8, 9)) %>%
-  ggplot(aes(x = x, y = sigma, group = iter)) +
-  geom_line(color = 'gray') +
-  facet_wrap(degree~., ncol = 2, labeller = labeller(degree = labs)) +
-  geom_line(data = sigmas %>% filter(type == 'true sigma') %>%
-              select(-degree), aes(x = x, y = sigma), color = 'black') +
-  ylim(c(0,6)) +
-  ylab(label = expression(paste(theta, "(", sigma, ")"))) +
-  theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
-                     panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")),
-  path = paste0("PLOTS/"),
-  filename = paste0('Link function_', link, '_', 'quantile_', matrix[k, 'tau'], '_',
-                   'Sample_size_', matrix[k, 'n'], ".png"),
-  width = 5,
-  height = 7
-
-  )
+    ggsave(plot = sigmas %>%
+             filter(type %in% c("true sigma", link), dataset == k, degree %in% c(2, 3, 4, 5, 6, 7, 8, 9)) %>% 
+             ggplot(aes(x = x, y = sigma, group = iter)) +
+             geom_line(color = 'gray', size = 0.1) +
+             facet_wrap(degree~., ncol = 2, labeller = labeller(degree = labs)) +
+             geom_line(data = sigmas %>% filter(type == 'true sigma') %>%
+                         select(-degree), aes(x = x, y = sigma), color = 'black') +
+             ylim(c(0,30)) +
+             ylab(label = expression(paste(theta, "(", sigma, ")"))) + 
+             theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+                                panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")),
+           path = paste0("PLOTS/"), 
+           filename = paste0('Link function_', link, '_', 'quantile_', matrix[k, 'tau'], '_', 
+                             'Sample_size_', matrix[k, 'n'], ".png"),
+           width = 5,
+           height = 7
+           
+    )
   }
 }
 
 # GENERATE BIAS TABLES FOR LATEX FILE ----
 
-est_names = c("Omni", "P & W", "W & W", "W & W (CV)",
+est_names = c("Omni", "P & W", "W & W", "W & W (CV)", 
               "Portnoy", "DB et. al.", "Laguerre", "Laguerre H. (exp link)",
               "Laguerre H. (quad link)", "Laguerre H. (Id link)", "Laguerre H. (abs link)")
 
 bias_tables = c()
 for(i in 1:10){
-
+  
   bias_temp = c()
   for(k in 1:nrow(matrix)){
-    bias_temp2 = bias[[i]][,,k] %>% round(digits = 4) %>% as.data.frame() %>%
+    bias_temp2 = bias[[i]][,,k] %>% round(digits = 4) %>% as.data.frame() %>% 
       mutate(Estimator = est_names, tau = matrix[k, "tau"], n = matrix[k, "n"], degree = i,
              dataset = k) %>%
       rename(c("beta_0" = "V1", "beta_1" = "V2"))
-
+    
     bias_temp = rbind(bias_temp, bias_temp2)
   }
   bias_tables = rbind(bias_tables, bias_temp)
@@ -305,7 +309,7 @@ for(i in 1:10){
 
 # TABLES LITERATURE
 bias_tables_literature = bias_tables %>%
-  filter(degree == 1, Estimator %in% c("Omni", "P & W", "W & W", "W & W (CV)",
+  filter(degree == 1, Estimator %in% c("Omni", "P & W", "W & W", "W & W (CV)", 
                                        "Portnoy", "DB et. al.", "Laguerre"))
 
 # apply styling to tables
@@ -336,56 +340,128 @@ table_grid <- cbind(table1_styled, table2_styled, table3_styled, table4_styled)
 # TABLES FOR PROPOSED ESTIMATOR
 
 est_proposed = c("Laguerre H. (exp link)",
-              "Laguerre H. (quad link)", "Laguerre H. (Id link)", "Laguerre H. (abs link)")
+                 "Laguerre H. (quad link)", "Laguerre H. (Id link)", "Laguerre H. (abs link)")
 
 bias_tables_temp = bias_tables %>%
-  filter(Estimator == 'Laguerre') %>%
+  filter(Estimator == 'Laguerre') %>% 
   mutate(degree = ifelse(Estimator == 'Laguerre', 0, degree)) %>%
   arrange(dataset) %>%
   group_by(dataset) %>%
-  slice_head(n = 4) %>%
-  mutate(Estimator = est_proposed) %>%
+  slice_head(n = 4) %>% 
+  mutate(Estimator = est_proposed) %>% 
   ungroup()
 
 bias_tables_proposed = bias_tables %>%
   filter(Estimator %in% est_proposed) %>%
   bind_rows(bias_tables_temp) %>%
   arrange(dataset, Estimator, degree) %>%
-  pivot_wider(names_from = Estimator, values_from = c(beta_0, beta_1))
+  pivot_wider(names_from = Estimator, values_from = c(beta_0, beta_1)) 
 
 bias_tables_proposed = bias_tables_proposed  %>%
   select(tau, n, degree, dataset,
-         ends_with("(Id link)"),
+         ends_with("(Id link)"), 
          ends_with("(abs link)"),
          ends_with("(exp link)"),
          ends_with("(quad link)"))
 
-table1 = kable(bias_tables_proposed %>% filter(dataset == 1) %>%
-                 select(-dataset, -tau, -n), "latex", booktabs = T)
-table2 = kable(bias_tables_proposed %>% filter(dataset == 2) %>%
-                 select(-dataset, -tau, -n), "latex", booktabs = T)
-table3 = kable(bias_tables_proposed %>% filter(dataset == 3) %>%
-                 select(-dataset, -tau, -n), "latex", booktabs = T)
-table4 = kable(bias_tables_proposed %>% filter(dataset == 4) %>%
-                 select(-dataset, -tau, -n), "latex", booktabs = T)
+dat_tab_bias = bias_tables_proposed %>%
+  select( -tau, -n)
+dat_tab_bias[dat_tab_bias$dataset == 1 & dat_tab_bias$degree == 0,] = 
+  c(0,1, rep(bias_tables_literature %>% filter(dataset == 1, Estimator == 'Laguerre') %>%
+               select(-dataset, -degree) %>% select(beta_0, beta_1) %>% unname() , 4))
 
+dat_tab_bias[dat_tab_bias$dataset == 2 & dat_tab_bias$degree == 0,] = 
+  c(0,2, rep(bias_tables_literature %>% filter(dataset == 2, Estimator == 'Laguerre') %>%
+               select(-dataset, -degree) %>% select(beta_0, beta_1) %>% unname() , 4))
+
+dat_tab_bias[dat_tab_bias$dataset == 3 & dat_tab_bias$degree == 0,] = 
+  c(0,3, rep(bias_tables_literature %>% filter(dataset == 3, Estimator == 'Laguerre') %>%
+               select(-dataset, -degree) %>% select(beta_0, beta_1) %>% unname() , 4))
+
+dat_tab_bias[dat_tab_bias$dataset == 4 & dat_tab_bias$degree == 0,] = 
+  c(0,4, rep(bias_tables_literature %>% filter(dataset == 4, Estimator == 'Laguerre') %>%
+               select(-dataset, -degree) %>% select(beta_0, beta_1) %>% unname() , 4))
+
+
+
+table1 = kable(dat_tab_bias %>% filter(dataset == 1) %>% select(-dataset), "latex", booktabs = T)
+table2 = kable(dat_tab_bias %>% filter(dataset == 2) %>% select(-dataset), "latex", booktabs = T) 
+table3 = kable(dat_tab_bias %>% filter(dataset == 3) %>% select(-dataset), "latex", booktabs = T)
+table4 = kable(dat_tab_bias %>% filter(dataset == 4) %>% select(-dataset), "latex", booktabs = T)
+
+# BIAS PLOTS ----
+
+test = dat_tab_bias %>% pivot_longer(cols = starts_with("beta_0"), names_to = "Estimator", values_to = "beta_0") %>%
+  select(degree, dataset, Estimator, beta_0) %>% mutate(Estimator = str_remove(Estimator, "beta_0_"))
+test2 = dat_tab_bias %>% pivot_longer(cols = starts_with("beta_1"), names_to = "Estimator", values_to = "beta_1") %>%
+  select(degree, dataset, Estimator, beta_1) %>% mutate(Estimator = str_remove(Estimator, "beta_1_"))
+test_final = test %>% left_join(test2)
+
+
+
+
+for (k in 1:nrow(matrix)){
+  # compute plots ----
+  bias_beta_0 = test_final %>% filter(dataset == k) %>%
+    ggplot(aes(x = degree, y = abs(beta_0))) +
+    geom_line(aes(group = Estimator, color = Estimator)) + 
+    theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+                       panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")) +
+    ylab(label = "Bias") +
+    geom_hline(data = bias_tables_literature %>%
+                 filter(dataset == k), mapping = aes(yintercept = abs(beta_0)), linetype = 'dashed')  +
+    geom_text_repel(data = bias_tables_literature %>%
+                      filter(dataset == k), aes(
+                        x = 12, y = abs(beta_0), label = Estimator
+                      ),
+                    hjust = 1
+    ) +
+    guides(label = 'none')
+  
+  bias_beta_1 = test_final %>% filter(dataset == k) %>%
+    ggplot(aes(x = degree, y = abs(beta_1))) +
+    geom_line(aes(group = Estimator, color = Estimator)) + 
+    theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+                       panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")) +
+    ylab(label = "Bias") +
+    geom_hline(data = bias_tables_literature %>%
+                 filter(dataset == k), mapping = aes(yintercept = abs(beta_1)), linetype = 'dashed')  +
+    geom_text_repel(data = bias_tables_literature %>%
+                      filter(dataset == k), aes(
+                        x = 12, y = abs(beta_1), label = Estimator
+                      ),
+                    hjust = 1
+    ) +
+    guides(label = 'none')
+  #save plots ----
+  ggsave(bias_beta_0,
+         path = paste0("PLOTS/"), 
+         filename = paste0('Bias_beta_0_', 'quantile_', matrix[k, 'tau'], '_', 
+                           'Sample_size_', matrix[k, 'n'], ".png"), width = 7, height = 5)
+  
+  ggsave(bias_beta_1, path = paste0("PLOTS/"), 
+         filename = paste0('Bias_beta_1_', 'quantile_', matrix[k, 'tau'], '_', 
+                           'Sample_size_', matrix[k, 'n'], ".png"), width = 7, height = 5)
+}
+
+bias_tables_literature
 
 # GENERATE MSE TABLES FOR LATEX FILE ----
 
-est_names = c("Omni", "P & W", "W & W", "W & W (CV)",
+est_names = c("Omni", "P & W", "W & W", "W & W (CV)", 
               "Portnoy", "DB et. al.", "Laguerre", "Laguerre H. (exp link)",
               "Laguerre H. (quad link)", "Laguerre H. (Id link)", "Laguerre H. (abs link)")
 
 mse_tables = c()
 for(i in 1:10){
-
+  
   mse_temp = c()
   for(k in 1:nrow(matrix)){
-    mse_temp2 = MSE[[i]][,,k] %>% round(digits = 4) %>% as.data.frame() %>%
+    mse_temp2 = MSE[[i]][,,k] %>% round(digits = 4) %>% as.data.frame() %>% 
       mutate(Estimator = est_names, tau = matrix[k, "tau"], n = matrix[k, "n"], degree = i,
              dataset = k) %>%
       rename(c("beta_0" = "V1", "beta_1" = "V2"))
-
+    
     mse_temp = rbind(mse_temp, mse_temp2)
   }
   mse_tables = rbind(mse_tables, mse_temp)
@@ -393,7 +469,7 @@ for(i in 1:10){
 
 # TABLES LITERATURE
 mse_tables_literature = mse_tables %>%
-  filter(degree == 1, Estimator %in% c("Omni", "P & W", "W & W", "W & W (CV)",
+  filter(degree == 1, Estimator %in% c("Omni", "P & W", "W & W", "W & W (CV)", 
                                        "Portnoy", "DB et. al.", "Laguerre"))
 
 # apply styling to tables
@@ -427,11 +503,11 @@ est_proposed = c("Laguerre H. (exp link)",
                  "Laguerre H. (quad link)", "Laguerre H. (Id link)", "Laguerre H. (abs link)")
 
 mse_tables_temp = mse_tables %>%
-  filter(Estimator == 'Laguerre') %>%
+  filter(Estimator == 'Laguerre') %>% 
   mutate(degree = ifelse(Estimator == 'Laguerre', 0, degree)) %>%
   arrange(dataset) %>%
   group_by(dataset) %>%
-  slice_head(n = 4) %>%
+  slice_head(n = 4) %>% 
   mutate(Estimator = est_proposed) %>%
   ungroup()
 
@@ -439,25 +515,97 @@ mse_tables_proposed = mse_tables %>%
   filter(Estimator %in% est_proposed) %>%
   bind_rows(mse_tables_temp) %>%
   arrange(dataset, Estimator, degree) %>%
-  pivot_wider(names_from = Estimator, values_from = c(beta_0, beta_1))
+  pivot_wider(names_from = Estimator, values_from = c(beta_0, beta_1)) 
 
 mse_tables_proposed = mse_tables_proposed  %>%
   select(tau, n, degree, dataset,
-         ends_with("(Id link)"),
+         ends_with("(Id link)"), 
          ends_with("(abs link)"),
          ends_with("(exp link)"),
          ends_with("(quad link)"))
 
-table1 = kable(mse_tables_proposed %>% filter(dataset == 1) %>%
-                 select(-dataset, -tau, -n), "latex", booktabs = T)
-table2 = kable(mse_tables_proposed %>% filter(dataset == 2) %>%
-                 select(-dataset, -tau, -n), "latex", booktabs = T)
-table3 = kable(mse_tables_proposed %>% filter(dataset == 3) %>%
-                 select(-dataset, -tau, -n), "latex", booktabs = T)
-table4 = kable(mse_tables_proposed %>% filter(dataset == 4) %>%
-                 select(-dataset, -tau, -n), "latex", booktabs = T)
+dat_tab_mse = mse_tables_proposed %>%
+  select( -tau, -n)
+dat_tab_mse[dat_tab_mse$dataset == 1 & dat_tab_mse$degree == 0,] = 
+  c(0,1, rep(mse_tables_literature %>% filter(dataset == 1, Estimator == 'Laguerre') %>%
+               select(-dataset, -degree) %>% select(beta_0, beta_1) %>% unname() , 4))
+
+dat_tab_mse[dat_tab_mse$dataset == 2 & dat_tab_mse$degree == 0,] = 
+  c(0,2, rep(mse_tables_literature %>% filter(dataset == 2, Estimator == 'Laguerre') %>%
+               select(-dataset, -degree) %>% select(beta_0, beta_1) %>% unname() , 4))
+
+dat_tab_mse[dat_tab_mse$dataset == 3 & dat_tab_mse$degree == 0,] = 
+  c(0,3, rep(mse_tables_literature %>% filter(dataset == 3, Estimator == 'Laguerre') %>%
+               select(-dataset, -degree) %>% select(beta_0, beta_1) %>% unname() , 4))
+
+dat_tab_mse[dat_tab_mse$dataset == 4 & dat_tab_mse$degree == 0,] = 
+  c(0,4, rep(mse_tables_literature %>% filter(dataset == 4, Estimator == 'Laguerre') %>%
+               select(-dataset, -degree) %>% select(beta_0, beta_1) %>% unname() , 4))
 
 
 
+table1 = kable(dat_tab_mse %>% filter(dataset == 1) %>% select(-dataset), "latex", booktabs = T)
+table2 = kable(dat_tab_mse %>% filter(dataset == 2) %>% select(-dataset), "latex", booktabs = T) 
+table3 = kable(dat_tab_mse %>% filter(dataset == 3) %>% select(-dataset), "latex", booktabs = T)
+table4 = kable(dat_tab_mse %>% filter(dataset == 4) %>% select(-dataset), "latex", booktabs = T)
+
+
+
+
+
+# MSE PLOTS ----
+
+test = dat_tab_mse %>% pivot_longer(cols = starts_with("beta_0"), names_to = "Estimator", values_to = "beta_0") %>%
+  select(degree, dataset, Estimator, beta_0) %>% mutate(Estimator = str_remove(Estimator, "beta_0_"))
+test2 = dat_tab_mse %>% pivot_longer(cols = starts_with("beta_1"), names_to = "Estimator", values_to = "beta_1") %>%
+  select(degree, dataset, Estimator, beta_1) %>% mutate(Estimator = str_remove(Estimator, "beta_1_"))
+test_final = test %>% left_join(test2)
+
+
+
+
+for (k in 1:nrow(matrix)){
+  # compute plots ----
+  mse_beta_0 = test_final %>% filter(dataset == k) %>%
+    ggplot(aes(x = degree, y = abs(beta_0))) +
+    geom_line(aes(group = Estimator, color = Estimator)) + 
+    theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+                       panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")) +
+    ylab(label = "MSE") +
+    geom_hline(data = mse_tables_literature %>%
+                 filter(dataset == k), mapping = aes(yintercept = abs(beta_0)), linetype = 'dashed')  +
+    geom_text_repel(data = mse_tables_literature %>%
+                      filter(dataset == k), aes(
+                        x = 12, y = abs(beta_0), label = Estimator
+                      ),
+                    hjust = 1
+    ) +
+    guides(label = 'none')
+  
+  mse_beta_1 = test_final %>% filter(dataset == k) %>%
+    ggplot(aes(x = degree, y = abs(beta_1))) +
+    geom_line(aes(group = Estimator, color = Estimator)) + 
+    theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+                       panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")) +
+    ylab(label = "MSE") +
+    geom_hline(data = mse_tables_literature %>%
+                 filter(dataset == k), mapping = aes(yintercept = abs(beta_1)), linetype = 'dashed')  +
+    geom_text_repel(data = mse_tables_literature %>%
+                      filter(dataset == k), aes(
+                        x = 12, y = abs(beta_1), label = Estimator
+                      ),
+                    hjust = 1
+    ) +
+    guides(label = 'none')
+  #save plots ----
+  ggsave(mse_beta_0,
+         path = paste0("PLOTS/"), 
+         filename = paste0('MSE_beta_0_', 'quantile_', matrix[k, 'tau'], '_', 
+                           'Sample_size_', matrix[k, 'n'], ".png"), width = 7, height = 5)
+  
+  ggsave(mse_beta_1, path = paste0("PLOTS/"), 
+         filename = paste0('MSE_beta_1_', 'quantile_', matrix[k, 'tau'], '_', 
+                           'Sample_size_', matrix[k, 'n'], ".png"), width = 7, height = 5)
+}
 
 
