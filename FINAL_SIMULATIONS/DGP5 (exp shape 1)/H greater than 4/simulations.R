@@ -54,7 +54,7 @@ h_list = vector(mode = "list", length = length(h))
 
 ## Iterative loop ----
 
-for (H in c(1,2,3,4)){
+for (H in c(5,6,7,8,9,10)){
   out7 =
     foreach(k = 1:(dim(matrix)[1]), .combine = 'cube', .packages = 'abind', .multicombine = TRUE)%:%
     foreach(i=1:(dim(datasets[[k]])[3]),.packages=c('nloptr','SphericalCubature', 'EQL','orthopolynom',
