@@ -126,6 +126,7 @@ for (H in h){
                 estexp$theta_tilde, estquad$theta_tilde, est_id$theta_tilde, est_abs$theta_tilde)
             }
   h_list[[which(h==H,arr.ind = TRUE)]] = out7
+  save(list=c("h_list"), file="results.RData")
 }
 
 ## Save results ----
