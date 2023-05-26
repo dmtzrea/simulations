@@ -1,0 +1,1729 @@
+starting worker pid=19284 on localhost:11836 at 18:38:26.281
+starting worker pid=1376 on localhost:11836 at 18:38:26.505
+starting worker pid=19748 on localhost:11836 at 18:38:26.684
+starting worker pid=9672 on localhost:11836 at 18:38:26.875
+starting worker pid=21212 on localhost:11836 at 18:38:27.093
+starting worker pid=7680 on localhost:11836 at 18:38:27.301
+starting worker pid=1508 on localhost:11836 at 18:38:27.490
+starting worker pid=21728 on localhost:11836 at 18:38:27.684
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+ze(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+starting worker pid=23280 on localhost:11326 at 18:43:46.920
+starting worker pid=23320 on localhost:11326 at 18:43:47.120
+starting worker pid=11772 on localhost:11326 at 18:43:47.314
+starting worker pid=17292 on localhost:11326 at 18:43:47.504
+starting worker pid=15684 on localhost:11326 at 18:43:47.734
+starting worker pid=14648 on localhost:11326 at 18:43:47.923
+starting worker pid=13152 on localhost:11326 at 18:43:48.103
+starting worker pid=22080 on localhost:11326 at 18:43:48.294
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+ze(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+ze(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+starting worker pid=20004 on localhost:11219 at 18:52:07.584
+starting worker pid=13416 on localhost:11219 at 18:52:07.773
+starting worker pid=7964 on localhost:11219 at 18:52:07.955
+starting worker pid=23536 on localhost:11219 at 18:52:08.138
+starting worker pid=6276 on localhost:11219 at 18:52:08.349
+starting worker pid=9236 on localhost:11219 at 18:52:08.557
+starting worker pid=22440 on localhost:11219 at 18:52:08.744
+starting worker pid=2548 on localhost:11219 at 18:52:08.930
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialiError in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnodError in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+starting worker pid=21316 on localhost:11248 at 19:20:23.025
+starting worker pid=10372 on localhost:11248 at 19:20:23.296
+starting worker pid=20020 on localhost:11248 at 19:20:23.552
+starting worker pid=22472 on localhost:11248 at 19:20:23.775
+starting worker pid=4184 on localhost:11248 at 19:20:23.990
+starting worker pid=21468 on localhost:11248 at 19:20:24.177
+starting worker pid=6840 on localhost:11248 at 19:20:24.361
+starting worker pid=21060 on localhost:11248 at 19:20:24.553
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+starting worker pid=19768 on localhost:11752 at 00:37:09.603
+starting worker pid=4108 on localhost:11752 at 00:37:09.823
+starting worker pid=18876 on localhost:11752 at 00:37:10.067
+starting worker pid=22044 on localhost:11752 at 00:37:10.289
+starting worker pid=19656 on localhost:11752 at 00:37:10.560
+starting worker pid=11596 on localhost:11752 at 00:37:10.768
+starting worker pid=11912 on localhost:11752 at 00:37:10.993
+starting worker pid=4252 on localhost:11752 at 00:37:11.238
+starting worker pid=22592 on localhost:11752 at 00:46:28.195
+starting worker pid=3324 on localhost:11752 at 00:46:28.404
+starting worker pid=5048 on localhost:11752 at 00:46:28.621
+starting worker pid=16692 on localhost:11752 at 00:46:28.829
+starting worker pid=2712 on localhost:11752 at 00:46:29.057
+starting worker pid=15136 on localhost:11752 at 00:46:29.271
+starting worker pid=21776 on localhost:11752 at 00:46:29.512
+starting worker pid=17596 on localhost:11752 at 00:46:29.751
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+starting worker pid=20164 on localhost:11752 at 00:51:56.724
+starting worker pid=7984 on localhost:11752 at 00:51:56.940
+starting worker pid=9124 on localhost:11752 at 00:51:57.139
+starting worker pid=18876 on localhost:11752 at 00:51:57.330
+starting worker pid=15300 on localhost:11752 at 00:51:57.542
+starting worker pid=20276 on localhost:11752 at 00:51:57.770
+starting worker pid=1676 on localhost:11752 at 00:51:57.971
+starting worker pid=17356 on localhost:11752 at 00:51:58.171
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Execution halted
+starting worker pid=8916 on localhost:11752 at 01:00:08.125
+starting worker pid=21524 on localhost:11752 at 01:00:08.323
+starting worker pid=9308 on localhost:11752 at 01:00:08.509
+starting worker pid=22336 on localhost:11752 at 01:00:08.702
+starting worker pid=1060 on localhost:11752 at 01:00:08.900
+starting worker pid=2880 on localhost:11752 at 01:00:09.119
+starting worker pid=18872 on localhost:11752 at 01:00:09.317
+starting worker pid=18896 on localhost:11752 at 01:00:09.514
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialiExecution halted
+or reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+starting worker pid=22432 on localhost:11642 at 14:34:36.020
+starting worker pid=6184 on localhost:11642 at 14:34:36.232
+starting worker pid=22772 on localhost:11642 at 14:34:36.415
+starting worker pid=17372 on localhost:11642 at 14:34:36.605
+starting worker pid=16172 on localhost:11642 at 14:34:36.804
+starting worker pid=16132 on localhost:11642 at 14:34:37.017
+starting worker pid=7700 on localhost:11642 at 14:34:37.206
+starting worker pid=6772 on localhost:11642 at 14:34:37.405
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+starting worker pid=22828 on localhost:11719 at 14:49:15.816
+starting worker pid=1792 on localhost:11719 at 14:49:16.005
+starting worker pid=20184 on localhost:11719 at 14:49:16.199
+starting worker pid=12636 on localhost:11719 at 14:49:16.453
+starting worker pid=10456 on localhost:11719 at 14:49:16.666
+starting worker pid=9560 on localhost:11719 at 14:49:16.850
+starting worker pid=4692 on localhost:11719 at 14:49:17.035
+starting worker pid=6756 on localhost:11719 at 14:49:17.211
+Loading required package: cubature
+Loading required package: cubature
+Loading required package: SimplicialCubature
+Loading required package: mvmesh
+Loading required package: cubature
+Loading required package: rcdd
+If you want correct answers, use rational arithmetic.
+See the Warnings sections in help pages for
+    functions that do computational geometry.
+Loading required package: rgl
+Loading required package: SimplicialCubature
+Loading required package: mvmesh
+Loading required package: rcdd
+If you want correct answers, use rational arithmetic.
+See the Warnings sections in help pages for
+    functions that do computational geometry.
+Loading required package: cubature
+Loading required package: rgl
+Loading required package: SimplicialCubature
+Loading required package: mvmesh
+Loading required package: cubature
+Loading required package: rcdd
+If you want correct answers, use rational arithmetic.
+See the Warnings sections in help pages for
+    functions that do computational geometry.
+Loading required package: rgl
+Loading required package: SimplicialCubature
+Loading required package: cubature
+Loading required package: mvmesh
+Loading required package: rcdd
+If you want correct answers, use rational arithmetic.
+See the Warnings sections in help pages for
+    functions that do computational geometry.
+Loading required package: rgl
+Loading required package: SimplicialCubature
+Loading required package: mvmesh
+Loading required package: cubature
+Loading required package: rcdd
+If you want correct answers, use rational arithmetic.
+See the Warnings sections in help pages for
+    functions that do computational geometry.
+Loading required package: rgl
+Loading required package: SimplicialCubature
+Loading required package: mvmesh
+Loading required package: rcdd
+Loading required package: cubature
+If you want correct answers, use rational arithmetic.
+See the Warnings sections in help pages for
+    functions that do computational geometry.
+Loading required package: rgl
+Loading required package: SimplicialCubature
+Loading required package: mvmesh
+Loading required package: rcdd
+If you want correct answers, use rational arithmetic.
+See the Warnings sections in help pages for
+    functions that do computational geometry.
+Loading required package: rgl
+Loading required package: SimplicialCubature
+Loading required package: mvmesh
+Loading required package: rcdd
+If you want correct answers, use rational arithmetic.
+See the Warnings sections in help pages for
+    functions that do computational geometry.
+Loading required package: rgl
+Loading required package: geometry
+Loading required package: geometry
+Loading required package: ttutils
+Loading required package: ttutils
+Loading required package: geometry
+Loading required package: SparseM
+Loading required package: SparseM
+Loading required package: ttutils
+Loading required package: geometry
+
+Attaching package: 'SparseM'
+
+The following object is masked from 'package:base':
+
+    backsolve
+
+Loading required package: geometry
+
+Attaching package: 'SparseM'
+
+The following object is masked from 'package:base':
+
+    backsolve
+
+Loading required package: SparseM
+Loading required package: ttutils
+Loading required package: ttutils
+
+Attaching package: 'SparseM'
+
+The following object is masked from 'package:base':
+
+    backsolve
+
+Loading required package: SparseM
+Loading required package: geometry
+Loading required package: SparseM
+Loading required package: geometry
+
+Attaching package: 'SparseM'
+
+The following object is masked from 'package:base':
+
+    backsolve
+
+Loading required package: ttutils
+Loading required package: ttutils
+
+Attaching package: 'SparseM'
+
+The following object is masked from 'package:base':
+
+    backsolve
+
+Loading required package: SparseM
+Loading required package: geometry
+Loading required package: SparseM
+Loading required package: ttutils
+
+Attaching package: 'SparseM'
+
+The following object is masked from 'package:base':
+
+    backsolve
+
+
+Attaching package: 'SparseM'
+
+The following object is masked from 'package:base':
+
+    backsolve
+
+Loading required package: SparseM
+
+Attaching package: 'SparseM'
+
+The following object is masked from 'package:base':
+
+    backsolve
+
+
+Attaching package: 'survival'
+
+The following object is masked from 'package:quantreg':
+
+    untangle.specials
+
+
+Attaching package: 'survival'
+
+The following object is masked from 'package:quantreg':
+
+    untangle.specials
+
+
+Attaching package: 'survival'
+
+The following object is masked from 'package:quantreg':
+
+    untangle.specials
+
+
+Attaching package: 'survival'
+
+The following object is masked from 'package:quantreg':
+
+    untangle.specials
+
+
+Attaching package: 'survival'
+
+The following object is masked from 'package:quantreg':
+
+    untangle.specials
+
+
+Attaching package: 'survival'
+
+The following object is masked from 'package:quantreg':
+
+    untangle.specials
+
+
+Attaching package: 'survival'
+
+The following object is masked from 'package:quantreg':
+
+    untangle.specials
+
+
+Attaching package: 'survival'
+
+The following object is masked from 'package:quantreg':
+
+    untangle.specials
+
+Step  1 Step 500Step S ep   2f   of  of 500p  00om simulation   from simulation    f  from simulation   500  from simulation  Step  simulation   3
+2 = h tep  of   15  =   11from simulation  Step   from simulation   of  500   
+ from simulation  4
+   h =  1 
+   h =  1 
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+In addition: ges:
+e(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+1: package 'nloptr' was built under R version 4.1.3 
+In addition: ubature' was built under R version 4.1.3 
+3: package 'rgl' waWarning messages:
+ was built unWarning messages:
+y' 1: package 'nloptr' was built unde1: package 'nloptr' wa3: package 'rgl' was built under 2: package 'cubature' was built under R version 4.1.3 
+3 
+cvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+In addition: Warning messages:
+e(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+1: package 'nloptr'1: package 'nloptr' was built under3: package 'rgl' was built under R version 4.1.3 
+t und3: package 'rgl' was 1: package 'nloptr' was built under6: package 'orthopoly4: package 'geometry' was built un4: pa2: package 'cubat7: package 'quantreg' was buiExecution 6: package 'ortho3: package 'rgl' was built under R version 8: package '7: package 'quantreg' was built under R vers4: package 'geometry' was built under R version 4.1.3 6: pa8: package 'survival' was built under R version 4.1Execu7: package 'quantreg' was built under R version 4.1.3 6Execution halted
+lynom' was built under R version 4.1.8: pExecution halted
+eg' was built under R version 4.1.Exec9: package 'survival' was built under R version 4.1.3 
+Execution halted
+In log(1 - F) : NaNs produced
+Execution halted
+Warning messages:
+1: package 'nloptr' was built under R version 4.1.3 
+2: package 'cubature' was built under R version 4.1.3 
+3: package 'rgl' was built under R version 4.1.3 
+4: package 'geometry' was built under R version 4.1.3 
+5: package 'ttutils' was built under R version 4.1.3 
+6: package 'orthopolynom' was built under R version 4.1.3 
+7: package 'quantreg' was built under R version 4.1.3 
+8: package 'survival' was built under R version 4.1.3 
+Execution halted
+starting worker pid=9944 on localhost:11558 at 17:10:42.554
+starting worker pid=15016 on localhost:11558 at 17:10:42.855
+starting worker pid=13292 on localhost:11558 at 17:10:43.092
+starting worker pid=1368 on localhost:11558 at 17:10:43.334
+Loading required package: cubature
+Loading required package: cubature
+Loading required package: cubature
+Loading required package: SimplicialCubature
+Loading required package: SimplicialCubature
+Loading required package: mvmesh
+Loading required package: mvmesh
+Loading required package: rcdd
+Loading required package: rcdd
+Loading required package: cubature
+If you want correct answers, use rational arithmetic.
+See the Warnings sections in help pages for
+    functions that do computational geometry.
+Loading required package: rgl
+Loading required package: SimplicialCubature
+Loading required package: mvmesh
+Loading required package: rcdd
+If you want correct answers, use rational arithmetic.
+See the Warnings sections in help pages for
+    functions that do computational geometry.
+Loading required package: rgl
+Loading required package: SimplicialCubature
+Loading required package: mvmesh
+Loading required package: rcdd
+If you want correct answers, use rational arithmetic.
+See the Warnings sections in help pages for
+    functions that do computational geometry.
+Loading required package: rgl
+Loading required package: geometry
+Loading required package: geometry
+Loading required package: geometry
+Loading required package: ttutils
+Loading required package: ttutils
+Loading required package: ttutils
+Loading required package: ttutils
+Loading required package: SparseM
+Loading required package: SparseM
+Loading required package: SparseM
+Loading required package: SparseM
+
+Attaching package: 'SparseM'
+
+The following object is masked from 'package:base':
+
+    backsolve
+
+
+Attaching package: 'SparseM'
+
+The following object is masked from 'package:base':
+
+    backsolve
+
+
+Attaching package: 'SparseM'
+
+The following object is masked from 'package:base':
+
+    backsolve
+
+
+Attaching package: 'SparseM'
+
+The following object is masked from 'package:base':
+
+    backsolve
+
+
+Attaching package: 'survival'
+
+The following object is masked from 'package:quantreg':
+
+    untangle.specials
+
+
+Attaching package: 'survival'
+
+The following object is masked from 'package:quantreg':
+
+    untangle.specials
+
+
+Attaching package: 'survival'
+
+The following object is masked from 'package:quantreg':
+
+    untangle.specials
+
+
+Attaching package: 'survival'
+
+The following object is masked from 'package:quantreg':
+
+    untangle.specials
+
+Step  1  of  500  from simulation   21   of   tep  500h =    1 of  
+rom simulation  5001   from simulation    2h =    1  
+=  1 
+Step  2  of  500  from simulation  2   h =  1 
+Step  1  of  500  from simulation  3   h =  1 
+Step  2  of  500  from simulation  3   h =  1 
+Step  1  of  500  from simulation  4   h =  1 
+Step  2  of  500  from simulation  4   h =  1 
+Step  1  of  500 tep  from simulation 2  of  500  from simulation  1  Step   =  2Step   
+2 of   of 500500 from simulation  from simulation  2    = h =  2 
+
+1   h =  2 
+Step  1  of  500  from simulation  3   h =  2 
+Step  2  of  500  from simulation  3   h =  2 
+Step  1  of  500  from simulation  4   h =  2 
+Step  2  of  500  from simulation  4   h =  2 
+Step  1 Step   5002   of m simulation  1500  Step simulation   1 =    3 of 
+500 Step  from simulation   = 2   of   
+h =  003 from simulation 
+2   h =  3 
+Step  1  of  500  from simulation  3   h =  3 
+Step  2  of  500  from simulation  3   h =  3 
+Step  1  of  500  from simulation  4   h =  3 
+Step  2  of  500  from simulation  4   h =  3 
+Step  1  of   2Step  of  1500  from simulation  100   from simulation  S ep  h =    4  of 
+400  from simulation 520  from simulation  1 =    h =  4 
+Step  1  of  500  from simulation  3   h =  4 
+Step  2  of  500  from simulation  3   h =  4 
+Step  1  of  500  from simulation  4   h =  4 
+Step  2  of  500  from simulation  4   h =  4 
+Step  1  of  Step  00 2 from simulation  of  500   tep  from simulation h =  1  of  
+500 Step    2rom simulation   
+ of  500  from simulation  2 
+ h =  5 
+Step  1  of  500  from simulation  3   h =  5 
+Step  2  of  500  from simulation  3   h =  5 
+Step  1  of  500  from simulation  4   h =  5 
+Step  2  of  500  from simulation  4   h =  5 
+Step  1 Step  2500 of  from simulation 510 tep    of  simulation  500  of 6from simulation  002 = 
+  from simulation 62
+=   h =  
+6 
+Step  1  of  500  from simulation  3   h =  6 
+Step  2  of  500  from simulation  3   h =  6 
+Step  1  of  500  from simulation  4   h =  6 
+Step  2  of  500  from simulation  4   h =  6 
+Step  1  of  Step 500  2 from simulation    of 1  500    from simulation h =  S1ep  1  
+h =  700 Step 
+rom simulation   22   of   500  =  from simulation  2 
+  h =  7 
+Step  1  of  500  from simulation  3   h =  7 
+Step  2  of  500  from simulation  3   h =  7 
+Step  1  of  500  from simulation  4   h =  7 
+Step  2  of  500  from simulation  4   h =  7 
+Step  1  of  Step 500  2 from simulation    of 1   00 h = m simulation Step   11    of  h = 500  8 from simulation Step   
+2   of h = 500  from simulation  
+2   h =  8 
+Step  1  of  500  from simulation  3   h =  8 
+Step  2  of  500  from simulation  3   h =  8 
+Step  1  of  500  from simulation  4   h =  8 
+Step  2  of  500  from simulation  4   h =  8 
+Step  1  of  Step    from simulation 2  1 of     00h =  from simulation  tep  1  
+ of h =  00 9 from simulation   
+2tep    h =  900 
+rom simulation  2   h =  9 
+Step  1  of  500  from simulation  3   h =  9 
+Step  2  of  500  from simulation  3   h =  9 
+Step  1  of  500  from simulation  4   h =  9 
+Step  2  of  500  from simulation  4   h =  9 
+Step  1  of  Step  2from simulation   of  500 h =  from simulation  tep 101 1
+  of   =  500Step  0  from simulation  
+2 of  500  =  from simulation  02 
+  h =  10 
+Step  1  of  500  from simulation  3   h =  10 
+Step  2  of  500  from simulation  3   h =  10 
+Step  1  of  500  from simulation  4   h =  10 
+Step  2  of  500  from simulation  4   h =  10 
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unseIn addition: con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+There were 50 or more warnings (use warnings() to see the first 50)
+ere were 50 or more warnings (use warnings() to see the first 50)
+There were 50 or more warnings (use warnings() to see the first 50)There were 50 or more warnings (use warnings() to see the first 50)
+Execution halted
+Execution halted
+Execution halted
+Execution halted
+starting worker pid=9252 on localhost:11531 at 13:46:53.233
+starting worker pid=7760 on localhost:11531 at 13:46:53.428
+starting worker pid=2580 on localhost:11531 at 13:46:53.605
+starting worker pid=3560 on localhost:11531 at 13:46:53.784
+starting worker pid=3224 on localhost:11531 at 13:46:53.977
+starting worker pid=624 on localhost:11531 at 13:46:54.180
+starting worker pid=11484 on localhost:11531 at 13:46:54.364
+starting worker pid=5688 on localhost:11531 at 13:46:54.552
+starting worker pid=584 on localhost:11531 at 14:22:47.061
+starting worker pid=12924 on localhost:11531 at 14:22:47.249
+starting worker pid=4288 on localhost:11531 at 14:22:47.440
+starting worker pid=12624 on localhost:11531 at 14:22:47.633
+starting worker pid=1544 on localhost:11531 at 14:22:47.828
+starting worker pid=3120 on localhost:11531 at 14:22:48.065
+starting worker pid=10604 on localhost:11531 at 14:22:48.252
+starting worker pid=5672 on localhost:11531 at 14:22:48.457
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+ze(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Execution halted
+Execution halted
+starting worker pid=15532 on localhost:11531 at 14:27:48.085
+starting worker pid=14836 on localhost:11531 at 14:27:48.271
+starting worker pid=4188 on localhost:11531 at 14:27:48.453
+starting worker pid=7596 on localhost:11531 at 14:27:48.633
+starting worker pid=17668 on localhost:11531 at 14:27:48.835
+starting worker pid=10664 on localhost:11531 at 14:27:49.039
+starting worker pid=7948 on localhost:11531 at 14:27:49.228
+starting worker pid=12436 on localhost:11531 at 14:27:49.417
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+starting worker pid=15096 on localhost:11531 at 14:38:36.043
+starting worker pid=4124 on localhost:11531 at 14:38:36.230
+starting worker pid=14668 on localhost:11531 at 14:38:36.422
+starting worker pid=3368 on localhost:11531 at 14:38:36.605
+starting worker pid=5256 on localhost:11531 at 14:38:36.820
+starting worker pid=15876 on localhost:11531 at 14:38:37.024
+starting worker pid=12620 on localhost:11531 at 14:38:37.211
+starting worker pid=1448 on localhost:11531 at 14:38:37.400
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+starting worker pid=7320 on localhost:11531 at 14:42:49.670
+starting worker pid=15760 on localhost:11531 at 14:42:49.868
+starting worker pid=12840 on localhost:11531 at 14:42:50.060
+starting worker pid=7164 on localhost:11531 at 14:42:50.254
+starting worker pid=14812 on localhost:11531 at 14:42:50.463
+starting worker pid=5404 on localhost:11531 at 14:42:50.655
+starting worker pid=3904 on localhost:11531 at 14:42:50.843
+starting worker pid=15092 on localhost:11531 at 14:42:51.054
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+ze(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+starting worker pid=2980 on localhost:11531 at 14:51:21.499
+starting worker pid=6996 on localhost:11531 at 14:51:21.714
+starting worker pid=6208 on localhost:11531 at 14:51:21.929
+starting worker pid=17612 on localhost:11531 at 14:51:22.124
+starting worker pid=540 on localhost:11531 at 14:51:22.345
+starting worker pid=3264 on localhost:11531 at 14:51:22.556
+starting worker pid=2004 on localhost:11531 at 14:51:22.752
+starting worker pid=4956 on localhost:11531 at 14:51:22.934
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+e -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialiExecution halted
+or reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+starting worker pid=4756 on localhost:11531 at 15:06:51.927
+starting worker pid=3964 on localhost:11531 at 15:06:52.114
+starting worker pid=12308 on localhost:11531 at 15:06:52.296
+starting worker pid=5204 on localhost:11531 at 15:06:52.491
+starting worker pid=552 on localhost:11531 at 15:06:52.694
+starting worker pid=15628 on localhost:11531 at 15:06:52.902
+starting worker pid=10444 on localhost:11531 at 15:06:53.103
+starting worker pid=9672 on localhost:11531 at 15:06:53.311
+starting worker pid=1788 on localhost:11531 at 15:08:43.710
+starting worker pid=11672 on localhost:11531 at 15:08:43.898
+starting worker pid=3844 on localhost:11531 at 15:08:44.088
+starting worker pid=17800 on localhost:11531 at 15:08:44.272
+starting worker pid=15120 on localhost:11531 at 15:08:44.467
+starting worker pid=13404 on localhost:11531 at 15:08:44.666
+starting worker pid=9732 on localhost:11531 at 15:08:44.849
+starting worker pid=8436 on localhost:11531 at 15:08:45.059
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+ze(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+starting worker pid=13252 on localhost:11640 at 15:23:29.792
+starting worker pid=2544 on localhost:11640 at 15:23:29.980
+starting worker pid=1528 on localhost:11640 at 15:23:30.169
+starting worker pid=3460 on localhost:11640 at 15:23:30.386
+starting worker pid=10224 on localhost:11640 at 15:23:30.609
+starting worker pid=5992 on localhost:11640 at 15:23:30.813
+starting worker pid=4836 on localhost:11640 at 15:23:31.010
+starting worker pid=14508 on localhost:11640 at 15:23:31.197
+starting worker pid=6552 on localhost:11640 at 15:24:10.029
+starting worker pid=596 on localhost:11640 at 15:24:10.212
+starting worker pid=2464 on localhost:11640 at 15:24:10.405
+starting worker pid=1608 on localhost:11640 at 15:24:10.606
+starting worker pid=14348 on localhost:11640 at 15:24:10.817
+starting worker pid=17716 on localhost:11640 at 15:24:11.016
+starting worker pid=2020 on localhost:11640 at 15:24:11.204
+starting worker pid=2496 on localhost:11640 at 15:24:11.393
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Execution halted
+ze(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+starting worker pid=10520 on localhost:11997 at 15:33:14.006
+starting worker pid=10676 on localhost:11997 at 15:33:14.193
+starting worker pid=16152 on localhost:11997 at 15:33:14.376
+starting worker pid=14108 on localhost:11997 at 15:33:14.562
+starting worker pid=15292 on localhost:11997 at 15:33:14.768
+starting worker pid=18508 on localhost:11997 at 15:33:14.960
+starting worker pid=14904 on localhost:11997 at 15:33:15.133
+starting worker pid=7852 on localhost:11997 at 15:33:15.307
+starting worker pid=16200 on localhost:11997 at 15:34:01.955
+starting worker pid=15168 on localhost:11997 at 15:34:02.135
+starting worker pid=17420 on localhost:11997 at 15:34:02.317
+starting worker pid=5372 on localhost:11997 at 15:34:02.500
+starting worker pid=9444 on localhost:11997 at 15:34:02.714
+starting worker pid=1212 on localhost:11997 at 15:34:02.932
+starting worker pid=5680 on localhost:11997 at 15:34:03.127
+starting worker pid=4032 on localhost:11997 at 15:34:03.315
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+starting worker pid=7928 on localhost:11997 at 16:14:12.933
+starting worker pid=10024 on localhost:11997 at 16:14:13.121
+starting worker pid=17764 on localhost:11997 at 16:14:13.310
+starting worker pid=2556 on localhost:11997 at 16:14:13.492
+starting worker pid=11640 on localhost:11997 at 16:14:13.689
+starting worker pid=11808 on localhost:11997 at 16:14:13.884
+starting worker pid=17772 on localhost:11997 at 16:14:14.061
+starting worker pid=4268 on localhost:11997 at 16:14:14.245
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+starting worker pid=14068 on localhost:11997 at 16:22:11.619
+starting worker pid=6552 on localhost:11997 at 16:22:11.812
+starting worker pid=8752 on localhost:11997 at 16:22:12.003
+starting worker pid=12980 on localhost:11997 at 16:22:12.190
+starting worker pid=17708 on localhost:11997 at 16:22:12.397
+starting worker pid=1184 on localhost:11997 at 16:22:12.593
+starting worker pid=16816 on localhost:11997 at 16:22:12.797
+starting worker pid=8388 on localhost:11997 at 16:22:13.012
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+starting worker pid=344 on localhost:11792 at 16:55:16.959
+starting worker pid=12524 on localhost:11792 at 16:55:17.142
+starting worker pid=16856 on localhost:11792 at 16:55:17.329
+starting worker pid=9460 on localhost:11792 at 16:55:17.518
+starting worker pid=14196 on localhost:11792 at 16:55:17.725
+starting worker pid=17148 on localhost:11792 at 16:55:17.922
+starting worker pid=16896 on localhost:11792 at 16:55:18.109
+starting worker pid=556 on localhost:11792 at 16:55:18.295
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+starting worker pid=8300 on localhost:11445 at 17:02:25.471
+starting worker pid=9820 on localhost:11445 at 17:02:25.660
+starting worker pid=6756 on localhost:11445 at 17:02:25.834
+starting worker pid=13364 on localhost:11445 at 17:02:26.031
+starting worker pid=11448 on localhost:11445 at 17:02:26.225
+starting worker pid=14852 on localhost:11445 at 17:02:26.428
+starting worker pid=15104 on localhost:11445 at 17:02:26.614
+starting worker pid=2344 on localhost:11445 at 17:02:26.806
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+starting worker pid=15712 on localhost:11058 at 17:14:59.054
+starting worker pid=3832 on localhost:11058 at 17:14:59.237
+starting worker pid=5768 on localhost:11058 at 17:14:59.416
+starting worker pid=2496 on localhost:11058 at 17:14:59.593
+starting worker pid=15320 on localhost:11058 at 17:14:59.784
+starting worker pid=16908 on localhost:11058 at 17:14:59.981
+starting worker pid=9904 on localhost:11058 at 17:15:00.163
+starting worker pid=10768 on localhost:11058 at 17:15:00.345
+Loading required package: cubature
+Loading required package: cubature
+Loading required package: SimplicialCubature
+Loading required package: mvmesh
+Loading required package: rcdd
+If you want correct answers, use rational arithmetic.
+See the Warnings sections in help pages for
+    functions that do computational geometry.
+Loading required package: rgl
+Loading required package: cubature
+Loading required package: SimplicialCubature
+Loading required package: mvmesh
+Loading required package: rcdd
+If you want correct answers, use rational arithmetic.
+See the Warnings sections in help pages for
+    functions that do computational geometry.
+Loading required package: rgl
+Loading required package: cubature
+Loading required package: SimplicialCubature
+Loading required package: cubature
+Loading required package: mvmesh
+Loading required package: rcdd
+If you want correct answers, use rational arithmetic.
+See the Warnings sections in help pages for
+    functions that do computational geometry.
+Loading required package: rgl
+Loading required package: SimplicialCubature
+Loading required package: mvmesh
+Loading required package: rcdd
+Loading required package: cubature
+If you want correct answers, use rational arithmetic.
+See the Warnings sections in help pages for
+    functions that do computational geometry.
+Loading required package: rgl
+Loading required package: SimplicialCubature
+Loading required package: mvmesh
+Loading required package: rcdd
+If you want correct answers, use rational arithmetic.
+See the Warnings sections in help pages for
+    functions that do computational geometry.
+Loading required package: rgl
+Loading required package: cubature
+Loading required package: SimplicialCubature
+Loading required package: mvmesh
+Loading required package: rcdd
+Loading required package: cubature
+If you want correct answers, use rational arithmetic.
+See the Warnings sections in help pages for
+    functions that do computational geometry.
+Loading required package: rgl
+Loading required package: SimplicialCubature
+Loading required package: mvmesh
+Loading required package: rcdd
+If you want correct answers, use rational arithmetic.
+See the Warnings sections in help pages for
+    functions that do computational geometry.
+Loading required package: rgl
+Loading required package: geometry
+Loading required package: geometry
+Loading required package: SimplicialCubature
+Loading required package: mvmesh
+Loading required package: rcdd
+If you want correct answers, use rational arithmetic.
+See the Warnings sections in help pages for
+    functions that do computational geometry.
+Loading required package: ttutils
+Loading required package: rgl
+Loading required package: ttutils
+Loading required package: SparseM
+Loading required package: geometry
+Loading required package: SparseM
+Loading required package: ttutils
+
+Attaching package: 'SparseM'
+
+The following object is masked from 'package:base':
+
+    backsolve
+
+Loading required package: geometry
+
+Attaching package: 'SparseM'
+
+The following object is masked from 'package:base':
+
+    backsolve
+
+Loading required package: SparseM
+Loading required package: ttutils
+Loading required package: geometry
+
+Attaching package: 'SparseM'
+
+The following object is masked from 'package:base':
+
+    backsolve
+
+Loading required package: ttutils
+Loading required package: SparseM
+Loading required package: geometry
+Loading required package: SparseM
+Loading required package: ttutils
+
+Attaching package: 'SparseM'
+
+The following object is masked from 'package:base':
+
+    backsolve
+
+Loading required package: geometry
+Loading required package: geometry
+
+Attaching package: 'SparseM'
+
+The following object is masked from 'package:base':
+
+    backsolve
+
+Loading required package: SparseM
+Loading required package: ttutils
+Loading required package: ttutils
+
+Attaching package: 'SparseM'
+
+The following object is masked from 'package:base':
+
+    backsolve
+
+Loading required package: SparseM
+Loading required package: SparseM
+
+Attaching package: 'SparseM'
+
+The following object is masked from 'package:base':
+
+    backsolve
+
+
+Attaching package: 'SparseM'
+
+The following object is masked from 'package:base':
+
+    backsolve
+
+
+Attaching package: 'survival'
+
+
+Attaching package: 'survival'
+
+The following object is masked from 'package:quantreg':
+
+    untangle.specials
+
+The following object is masked from 'package:quantreg':
+
+    untangle.specials
+
+
+Attaching package: 'survival'
+
+The following object is masked from 'package:quantreg':
+
+    untangle.specials
+
+
+Attaching package: 'survival'
+
+The following object is masked from 'package:quantreg':
+
+    untangle.specials
+
+
+Attaching package: 'survival'
+
+The following object is masked from 'package:quantreg':
+
+    untangle.specials
+
+
+Attaching package: 'survival'
+
+The following object is masked from 'package:quantreg':
+
+    untangle.specials
+
+
+Attaching package: 'survival'
+
+The following object is masked from 'package:quantreg':
+
+    untangle.specials
+
+
+Attaching package: 'survival'
+
+The following object is masked from 'package:quantreg':
+
+    untangle.specials
+
+Step  1 Step 500   from simulation  1Step  3 =  tep 500  f   from simulation  
+1of   00  fromh = ulation    1rom simulation   Step  h =6   from simulation  1
+  
+ h =  1 
+Step  7  of  500  from simulation  1   h =  1 
+Step  8  of  500  from simulation  1   h =  1 
+500  from simulation  1   h =  1 
+Step  9  of  500  from simulation  1   h =  1 
+Step  10  of  500  from simulation  1   h =  1 
+Step  11  of  500  from simulation  1   h =  1 
+Step  12  of  500  from simulation  1   h =  1 
+Step  13  of  500  from simulation  1   h =  1 
+Step  14  of  500  from simulation  1   h =  1 
+Step  15  of  500  from simulation  1   h =  1 
+Step  16  of  500  from simulation  1   h =  1 
+Step  17  of  500  from simulation  1   h =  1 
+Step  18  of  500  from simulation  1   h =  1 
+Step  19  of  500  from simulation  1   h =  1 
+Step  20  of  500  from simulation  1   h =  1 
+Step  21  of  500  from simulation  1   h =  1 
+Step  22  of  500  from simulation  1   h =  1 
+Step  23  of  500  from simulation  1   h =  1 
+Step  24  of  500  from simulation  1   h =  1 
+Step  25  of  500  from simulation  1   h =  1 
+Step  26  of  500  from simulation  1   h =  1 
+Step  27  of  500  from simulation  1   h =  1 
+Step  28  of  500  from simulation  1   h =  1 
+Step  29  of  500  from simulation  1   h =  1 
+Step  30  of  500  from simulation  1   h =  1 
+Step  31  of  500  from simulation  1   h =  1 
+Step  32  of  500  from simulation  1   h =  1 
+Step  33  of  500  from simulation  1   h =  1 
+Step  34  of  500  from simulation  1   h =  1 
+Step  35  of  500  from simulation  1   h =  1 
+Step  36  of  500  from simulation  1   h =  1 
+Step  37  of  500  from simulation  1   h =  1 
+Step  38  of  500  from simulation  1   h =  1 
+Step  39  of  500  from simulation  1   h =  1 
+Step  40  of  500  from simulation  1   h =  1 
+Step  41  of  500  from simulation  1   h =  1 
+Step  42  of  500  from simulation  1   h =  1 
+Step  43  of  500  from simulation  1   h =  1 
+Step  44  of  500  from simulation  1   h =  1 
+Step  45  of  500  from simulation  1   h =  1 
+Step  46  of  500  from simulation  1   h =  1 
+Step  47  of  500  from simulation  1   h =  1 
+Step  48  of  500  from simulation  1   h =  1 
+Step  49  of  500  from simulation  1   h =  1 
+Step  50  of  500  from simulation  1   h =  1 
+Step  51  of  500  from simulation  1   h =  1 
+Step  52  of  500  from simulation  1   h =  1 
+Step  53  of  500  from simulation  1   h =  1 
+Step  54  of  500  from simulation  1   h =  1 
+Step  55  of  500  from simulation  1   h =  1 
+Step  56  of  500  from simulation  1   h =  1 
+Step  57  of  500  from simulation  1   h =  1 
+Step  58  of  500  from simulation  1   h =  1 
+Step  59  of  500  from simulation  1   h =  1 
+Step  60  of  500  from simulation  1   h =  1 
+Step  61  of  500  from simulation  1   h =  1 
+Step  62  of  500  from simulation  1   h =  1 
+Step  63  of  500  from simulation  1   h =  1 
+Step  64  of  500  from simulation  1   h =  1 
+Step  65  of  500  from simulation  1   h =  1 
+Step  66  of  500  from simulation  1   h =  1 
+Step  67  of  500  from simulation  1   h =  1 
+Step  68  of  500  from simulation  1   h =  1 
+Step  69  of  500  from simulation  1   h =  1 
+Step  70  of  500  from simulation  1   h =  1 
+Step  71  of  500  from simulation  1   h =  1 
+Step  72  of  500  from simulation  1   h =  1 
+Step  73  of  500  from simulation  1   h =  1 
+Step  74  of  500  from simulation  1   h =  1 
+Step  75  of  500  from simulation  1   h =  1 
+Step  76  of  500  from simulation  1   h =  1 
+Step  77  of  500  from simulation  1   h =  1 
+Step  78  of  500  from simulation  1   h =  1 
+Step  79  of  500  from simulation  1   h =  1 
+Step  80  of  500  from simulation  1   h =  1 
+Step  81  of  500  from simulation  1   h =  1 
+Step  82  of  500  from simulation  1   h =  1 
+Step  83  of  500  from simulation  1   h =  1 
+Step  84  of  500  from simulation  1   h =  1 
+Step  85  of  500  from simulation  1   h =  1 
+Step  86  of  500  from simulation  1   h =  1 
+Step  87  of  500  from simulation  1   h =  1 
+starting worker pid=13168 on localhost:11151 at 17:36:56.253
+starting worker pid=1644 on localhost:11151 at 17:36:56.437
+starting worker pid=17436 on localhost:11151 at 17:36:56.616
+starting worker pid=16340 on localhost:11151 at 17:36:56.798
+starting worker pid=9584 on localhost:11151 at 17:36:56.991
+starting worker pid=4396 on localhost:11151 at 17:36:57.191
+starting worker pid=10464 on localhost:11151 at 17:36:57.377
+starting worker pid=5972 on localhost:11151 at 17:36:57.555
+starting worker pid=12804 on localhost:11151 at 17:37:30.876
+starting worker pid=2636 on localhost:11151 at 17:37:31.055
+starting worker pid=5860 on localhost:11151 at 17:37:31.234
+starting worker pid=3192 on localhost:11151 at 17:37:31.411
+starting worker pid=17420 on localhost:11151 at 17:37:31.598
+starting worker pid=12420 on localhost:11151 at 17:37:31.797
+starting worker pid=14080 on localhost:11151 at 17:37:31.985
+starting worker pid=14700 on localhost:11151 at 17:37:32.162
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+starting worker pid=11660 on localhost:11151 at 17:43:12.908
+starting worker pid=10812 on localhost:11151 at 17:43:13.108
+starting worker pid=14144 on localhost:11151 at 17:43:13.302
+starting worker pid=15316 on localhost:11151 at 17:43:13.497
+starting worker pid=4844 on localhost:11151 at 17:43:13.703
+starting worker pid=9428 on localhost:11151 at 17:43:13.898
+starting worker pid=7008 on localhost:11151 at 17:43:14.074
+starting worker pid=11128 on localhost:11151 at 17:43:14.255
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+ze(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+starting worker pid=13768 on localhost:11151 at 17:48:26.232
+starting worker pid=3824 on localhost:11151 at 17:48:26.420
+starting worker pid=19144 on localhost:11151 at 17:48:26.596
+starting worker pid=9008 on localhost:11151 at 17:48:26.771
+starting worker pid=10676 on localhost:11151 at 17:48:26.961
+starting worker pid=15836 on localhost:11151 at 17:48:27.163
+starting worker pid=1668 on localhost:11151 at 17:48:27.348
+starting worker pid=15484 on localhost:11151 at 17:48:27.524
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+starting worker pid=7204 on localhost:11151 at 17:51:29.741
+starting worker pid=7476 on localhost:11151 at 17:51:29.926
+starting worker pid=15388 on localhost:11151 at 17:51:30.105
+starting worker pid=9816 on localhost:11151 at 17:51:30.286
+starting worker pid=4772 on localhost:11151 at 17:51:30.483
+starting worker pid=4268 on localhost:11151 at 17:51:30.691
+starting worker pid=9332 on localhost:11151 at 17:51:30.877
+starting worker pid=11836 on localhost:11151 at 17:51:31.060
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+starting worker pid=14876 on localhost:11151 at 18:08:14.349
+starting worker pid=14836 on localhost:11151 at 18:08:14.523
+starting worker pid=15528 on localhost:11151 at 18:08:14.695
+starting worker pid=7484 on localhost:11151 at 18:08:14.899
+starting worker pid=2132 on localhost:11151 at 18:08:15.088
+starting worker pid=1184 on localhost:11151 at 18:08:15.278
+starting worker pid=1648 on localhost:11151 at 18:08:15.474
+starting worker pid=17764 on localhost:11151 at 18:08:15.670
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+starting worker pid=17372 on localhost:11151 at 18:11:48.409
+starting worker pid=17792 on localhost:11151 at 18:11:48.583
+starting worker pid=14528 on localhost:11151 at 18:11:48.750
+starting worker pid=3792 on localhost:11151 at 18:11:48.919
+starting worker pid=14728 on localhost:11151 at 18:11:49.089
+starting worker pid=14292 on localhost:11151 at 18:11:49.281
+starting worker pid=16192 on localhost:11151 at 18:11:49.471
+starting worker pid=17068 on localhost:11151 at 18:11:49.640
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+starting worker pid=10244 on localhost:11151 at 18:14:43.909
+starting worker pid=2988 on localhost:11151 at 18:14:44.100
+starting worker pid=15076 on localhost:11151 at 18:14:44.269
+starting worker pid=7840 on localhost:11151 at 18:14:44.438
+starting worker pid=17604 on localhost:11151 at 18:14:44.626
+starting worker pid=16932 on localhost:11151 at 18:14:44.819
+starting worker pid=4448 on localhost:11151 at 18:14:44.996
+starting worker pid=17820 on localhost:11151 at 18:14:45.174
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+starting worker pid=17764 on localhost:11151 at 18:20:45.830
+starting worker pid=16356 on localhost:11151 at 18:20:46.005
+starting worker pid=7812 on localhost:11151 at 18:20:46.174
+starting worker pid=19176 on localhost:11151 at 18:20:46.343
+starting worker pid=11540 on localhost:11151 at 18:20:46.516
+starting worker pid=10420 on localhost:11151 at 18:20:46.708
+starting worker pid=11644 on localhost:11151 at 18:20:46.894
+starting worker pid=2940 on localhost:11151 at 18:20:47.075
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+starting worker pid=5292 on localhost:11584 at 00:05:23.680
+starting worker pid=11328 on localhost:11584 at 00:05:24.051
+starting worker pid=7944 on localhost:11584 at 00:05:24.388
+starting worker pid=22172 on localhost:11584 at 00:05:24.718
+starting worker pid=11784 on localhost:11584 at 00:05:25.057
+starting worker pid=21060 on localhost:11584 at 00:05:25.443
+starting worker pid=3132 on localhost:11584 at 00:05:25.753
+starting worker pid=19776 on localhost:11584 at 00:05:26.122
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Execution halted
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Error in unserialize(node$con) : error reading from connection
+Calls: <Anonymous> ... doTryCatch -> recvData -> recvData.SOCKnode -> unserialize
+Execution halted
+Execution halted
+Execution halted
+Execution halted

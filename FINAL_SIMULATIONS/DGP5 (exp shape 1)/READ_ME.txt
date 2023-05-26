@@ -1,0 +1,1 @@
+To generate the plots go into the simulations file in the 'higher than 4' folder.

@@ -19,7 +19,8 @@ package_load<-function(packages = NULL, quiet=TRUE,
 
 package_load(c('abind', 'foreach', 'doParallel', 'dplyr', 'devtools', 'pracma',
                'tidyr', 'ggplot2', 'kableExtra','quantreg', 'survival',
-               'orthopolynom', 'EQL', 'nloptr', 'SphericalCubature', 'polynom'))
+               'orthopolynom', 'EQL', 'nloptr', 'SphericalCubature', 'polynom',
+               'stringr', 'ggrepel'))
 
 install_github("dmtzrea/Laguerre2")
 library(Laguerre)
@@ -125,12 +126,38 @@ for (H in h){
                 estexp$theta, estquad$theta, est_id$theta, est_abs$theta,
                 estexp$theta_tilde, estquad$theta_tilde, est_id$theta_tilde, est_abs$theta_tilde)
             }
-  h_list[[which(h==H,arr.ind = TRUE)]] = out7
-  save(list=c("h_list"), file="results.RData")
+  #  h_list[[which(h==H,arr.ind = TRUE)]] = out7
+  save(out7, file=paste0("results_", H, ".RData"))
 }
 
 ## Save results ----
-save(list=c("h_list"), file="results.RData")
+#save(list=c("h_list"), file="results.RData")
+
+# LOAD RESULTS FROM DIFFERENT H's ----
+load("results_1.Rdata",  temp_env <- new.env())
+results1 <- as.list(temp_env)[[1]]
+load("results_2.Rdata",  temp_env <- new.env())
+results2 <- as.list(temp_env)[[1]]
+load("results_3.Rdata",  temp_env <- new.env())
+results3 <- as.list(temp_env)[[1]]
+load("results_4.Rdata",  temp_env <- new.env())
+results4 <- as.list(temp_env)[[1]]
+load("results_5.Rdata",  temp_env <- new.env())
+results5 <- as.list(temp_env)[[1]]
+load("results_6.Rdata",  temp_env <- new.env())
+results6 <- as.list(temp_env)[[1]]
+load("results_7.Rdata",  temp_env <- new.env())
+results7 <- as.list(temp_env)[[1]]
+load("results_8.Rdata",  temp_env <- new.env())
+results8 <- as.list(temp_env)[[1]]
+load("results_9.Rdata",  temp_env <- new.env())
+results9 <- as.list(temp_env)[[1]]
+load("results_10.Rdata",  temp_env <- new.env())
+results10 <- as.list(temp_env)[[1]]
+h_list = c(results1, results2, results3, results4, results5, results6, results7, 
+           results8, results9, results10)
+rm(results1, results2, results3, results4, results5, results6, results7, 
+   results8, results9, results10)
 
 
 ## Compute statistics ----

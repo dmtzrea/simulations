@@ -1,42 +1,31 @@
-# Function to check libraries----
-package_load<-function(packages = NULL, quiet=TRUE, 
-                       verbose=FALSE, warn.conflicts=FALSE){
-  
-  # download required packages if they're not already
-  
-  pkgsToDownload<- packages[!(packages  %in% installed.packages()[,"Package"])]
-  if(length(pkgsToDownload)>0)
-    install.packages(pkgsToDownload, repos="http://cran.us.r-project.org", 
-                     quiet=quiet, verbose=verbose)
-  
-  # then load them
-  for(i in 1:length(packages))
-    require(packages[i], character.only=T, quietly=quiet, 
-            warn.conflicts=warn.conflicts)
-}
-
 ## Load Libraries ----
-
-package_load(c('abind', 'foreach', 'doParallel', 'dplyr', 'devtools', 'pracma',
-               'tidyr', 'ggplot2', 'kableExtra','quantreg', 'survival',
-               'orthopolynom', 'EQL', 'nloptr', 'SphericalCubature', 'polynom', 
-               'stringr', 'ggrepel'))
-
-install_github("dmtzrea/Laguerre2")
+library("abind")
+library(foreach)
+library(doParallel)
+library(dplyr)
 library(Laguerre)
+library(pracma)
+library(tidyr)
+library(ggplot2)
+library(kableExtra)
+library(here)
+library(stringr)
+library(geomtextpath)
+library(ggrepel)
+library(ggpubr)
+
 
 ## SET WD  ----
-# sets wd to the path where this script lives
 setwd(dir = dirname(rstudioapi::getSourceEditorContext()$path))
 
 ## Find the number of cores in your system ----
 clno <- detectCores()
-cl   <- makeCluster(clno - 1,outfile="test2")
+cl   <- makeCluster(clno,outfile="test2")
 registerDoParallel(cl)
 
 ## LOAD LITERATURE AND DATASETS ----
 source(file = "Loading Literature.R")
-source(file = "DGP5.R")
+source(file = "DGP2 Wang.R")
 
 ## Identity link ----
 
@@ -55,10 +44,10 @@ h_list = vector(mode = "list", length = length(h))
 
 ## Iterative loop ----
 
-for (H in c(7,8,9,10)){
+for (H in h){
   out7 =
     foreach(k = 1:(dim(matrix)[1]), .combine = 'cube', .packages = 'abind', .multicombine = TRUE)%:%
-    foreach(i=1:(dim(datasets[[k]])[3]),.packages=c('nloptr','SphericalCubature', 'EQL','orthopolynom',
+    foreach(i=1:(dim(datasets[[k]])[3]-498),.packages=c('nloptr','SphericalCubature', 'EQL','orthopolynom',
                                                   'quantreg', 'survival', 'Laguerre'),
             .combine=rbind) %dopar% {
 
@@ -69,10 +58,10 @@ for (H in c(7,8,9,10)){
               cat("Step ",i," of ",matrix[k,"N"]," from simulation ",k, " ", "h = ", H, "\n")
 
               X = datasets[[k]][,1:2,i]
-              Y = datasets[[k]][,4,i]
-              Delta = datasets[[k]][,5,i]
-              T = datasets[[k]][,6,i]
-              X_s = as.matrix(datasets[[k]][,2, i])
+              Y = datasets[[k]][,3,i]
+              Delta = datasets[[k]][,4,i]
+              T = datasets[[k]][,5,i]
+              X_s = as.matrix(X[,2])
               tau  <- matrix[k, 3]
 
               # Bandwidth CV
@@ -107,7 +96,7 @@ for (H in c(7,8,9,10)){
               while(est_abs$objective %in% c(-Inf, Inf)){
                 est_abs = try(laguerre_estimator_het(m,m_tilde,H,X,X_s,type, Y, Delta, tau,trials=32, verbose=0,link=link2))
               }
-              beta_h = laguerre_estimator_het(m,m_tilde,0, X=X,X_s,type, Y=Y, Delta=Delta, tau=tau,trials=32, verbose = 0)
+              beta_h = laguerre_estimator_het(m,m_tilde,0, X=X,X_s,type, Y=Y, Delta=Delta, tau=tau,trials=32, verbose = 0)$beta
               adapted = MMLQR.cens(Y,Delta,X[,2],tau,h=0.5, beta=c(4,5))
               W.W = WW.cens(Y, X[,2], Delta, tau, 0.1)
               W.W_cv = WW.cens(Y, X[,2], Delta, tau, h.WW)
@@ -120,38 +109,17 @@ for (H in c(7,8,9,10)){
                 W.W_cv$coeff,
                 crq$sol[2:3,which.min(abs(tau - crq$sol["tau",]))],
                 adapted$beta,
-                beta_h$beta,
+                beta_h,
                 estexp$beta,estquad$beta, est_id$beta, est_abs$beta,
-                estexp$H, estquad$H, est_id$H, est_abs$H,
+                estexp$H, estquad$H, est_id$H, est_abs$H, 
                 estexp$theta, estquad$theta, est_id$theta, est_abs$theta,
                 estexp$theta_tilde, estquad$theta_tilde, est_id$theta_tilde, est_abs$theta_tilde)
             }
   h_list[[which(h==H,arr.ind = TRUE)]] = out7
-  save(out7, file=paste0("results_", H, ".RData"))
 }
 
 ## Save results ----
-#save(list=c("h_list"), file="results.RData")
-
-# LOAD RESULTS FROM DIFFERENT H's ----
-load("results_1_4.Rdata",  temp_env <- new.env())
-results1_4 <- as.list(temp_env)[[1]]
-load("results_5.Rdata",  temp_env <- new.env())
-results5 <- as.list(temp_env)[[1]]
-load("results_6.Rdata",  temp_env <- new.env())
-results6 <- as.list(temp_env)[[1]]
-load("results_7.Rdata",  temp_env <- new.env())
-results7 <- as.list(temp_env)[[1]]
-load("results_8.Rdata",  temp_env <- new.env())
-results8 <- as.list(temp_env)[[1]]
-load("results_9.Rdata",  temp_env <- new.env())
-results9 <- as.list(temp_env)[[1]]
-load("results_10.Rdata",  temp_env <- new.env())
-results10 <- as.list(temp_env)[[1]]
-h_list = c(results1_4, results5, results6, results7, 
-           results8, results9, results10)
-rm(results1_4, results5, results6, results7, 
-   results8, results9, results10)
+save(list=c("h_list"), file="results.RData")
 
 
 ## Compute statistics ----
@@ -167,7 +135,7 @@ for(i in 1:10){
   for(k in 1:nrow(matrix)){
 colnames(h_list[[i]]) = NULL
 rownames(h_list[[i]]) = NULL
-bias[[i]][,,k] = (h_list[[i]][,1:(11*length(true_beta)),k] %>% colMeans() %>% matrix(ncol = length(true_beta), byrow = TRUE)) -
+bias[[i]][,,k] = (h_list[[i]][,1:(11*length(true_beta)),k] %>% colMeans() %>% matrix(ncol = length(true_beta), byrow = TRUE)) - 
   matrix(true_beta, ncol = length(true_beta), nrow = 11, byrow = TRUE)
   }
 }
@@ -181,8 +149,8 @@ for(i in 1:10){
   for(k in 1:nrow(matrix)){
     colnames(h_list[[i]]) = NULL
     rownames(h_list[[i]]) = NULL
-    MSE[[i]][,,k] = ((h_list[[i]][,1:(11*length(true_beta)),k] - matrix(true_beta, nrow = dim(h_list[[i]])[1], ncol = (11*length(true_beta)), byrow = TRUE))^2 %>%
-                        colMeans() %>% matrix(ncol = length(true_beta), byrow = TRUE))
+    MSE[[i]][,,k] = ((h_list[[i]][,1:(11*length(true_beta)),k] - matrix(true_beta, nrow = dim(h_list[[i]])[1], ncol = (11*length(true_beta)), byrow = TRUE))^2 %>% 
+                        colMeans() %>% matrix(ncol = length(true_beta), byrow = TRUE)) 
   }
 }
 
@@ -195,66 +163,66 @@ N = 500 #CHANGE THIS TO 500 FOR REAL SIMULATION
 links = list("exp", "quad", link, link2)
 
 for(k in 1:nrow(matrix)){
-  for(i in 1:10){
-    SIGMA[[i]] = array(dim = c(dim(datasets[[k]])[1], 5, length(1:N)))
-    for(n in 1:N){
+for(i in 1:10){
+  SIGMA[[i]] = array(dim = c(dim(datasets[[k]])[1], 5, length(1:N)))
+  for(n in 1:N){
+    
+    colnames(h_list[[i]]) = NULL
+    rownames(h_list[[i]]) = NULL
+    X_s = as.matrix(datasets[[k]][,2,n])
+    SIGMA[[i]][,1, n] = X_s
+    
+    # Compute sigma ----
+    start = (11*length(true_beta)) + 1 #To fetch the H coefficients.
+    start_theta = (11*length(true_beta)) + 4*(i + 1) + 1
+    start_theta_tilde = (11*length(true_beta)) + 4*(i + 1) + 8 + 1
+    
+    # LOOP OVER THE SIGMA ESTIMATORS
+    for(l in 1:4){
+    link_temp = links[[l]]
+    H = h_list[[i]][n, start:(start + i), k]
+    start = start + i + 1
+    
+    theta = h_list[[i]][n, start_theta:(start_theta + 1), k]
+    start_theta = start_theta + 2
+    
+    
+    theta_tilde = h_list[[i]][n, start_theta_tilde:(start_theta_tilde + 1), k]
+    start_theta_tilde = start_theta_tilde + 2
+    
+    
       
-      colnames(h_list[[i]]) = NULL
-      rownames(h_list[[i]]) = NULL
-      X_s = as.matrix(datasets[[k]][,2,n])
-      SIGMA[[i]][,1, n] = X_s
-      
-      # Compute sigma ----
-      start = (11*length(true_beta)) + 1 #To fetch the H coefficients.
-      start_theta = (11*length(true_beta)) + 4*(i + 1) + 1
-      start_theta_tilde = (11*length(true_beta)) + 4*(i + 1) + 8 + 1
-      
-      # LOOP OVER THE SIGMA ESTIMATORS
-      for(l in 1:4){
-        link_temp = links[[l]]
-        H = h_list[[i]][n, start:(start + i), k]
-        start = start + i + 1
-        
-        theta = h_list[[i]][n, start_theta:(start_theta + 1), k]
-        start_theta = start_theta + 2
-        
-        
-        theta_tilde = h_list[[i]][n, start_theta_tilde:(start_theta_tilde + 1), k]
-        start_theta_tilde = start_theta_tilde + 2
-        
-        
-        
-        Her = Her(X_s, deg=i, type=type)
-        if(link_temp == "exp"){
-          sigma = exp(Her%*%H)/exp(1)
-        }
-        
-        if(link_temp=="quad"){
-          sigma = (Her%*%H)^2
-        }
-        
-        if (link_temp!="exp" & link_temp!="quad"){
-          sigma = as.vector(unlist(lapply(link_temp, function(f) f(Her%*%H))[1]))
-          dsigma = as.vector(unlist(lapply(link_temp, function(f) f(Her%*%H))[2]))
-        }
-        sigma = sigma*sqrt(laguerre_var(theta, theta_tilde, matrix[k, 'tau']))
-        
-        SIGMA[[i]][,l + 1, n] = sigma
-        
-      }
-      
-      
-      
-      
+    Her = Her(X_s, deg=i, type=type)
+    if(link_temp == "exp"){
+      sigma = exp(Her%*%H)/exp(1)
     }
-  }
+    
+    if(link_temp=="quad"){
+      sigma = (Her%*%H)^2
+    }
+    
+    if (link_temp!="exp" & link_temp!="quad"){
+      sigma = as.vector(unlist(lapply(link_temp, function(f) f(Her%*%H))[1]))
+      dsigma = as.vector(unlist(lapply(link_temp, function(f) f(Her%*%H))[2]))
+    }
+    sigma = sigma*sqrt(laguerre_var(theta, theta_tilde, matrix[k, 'tau']))
+    
+    SIGMA[[i]][,l + 1, n] = sigma
+    
+    }
+    
+    
+  
+    
+}
+}
   
   SIGMA_BIG[[k]] = SIGMA
 }
 
 # Arrange sigmas in a dataframe
 x_s  = as.matrix(datasets[[1]][,2,1])
-sigmas = cbind(x_s, (exp(x_s))) %>% as.data.frame() %>% # TRUE SIGMA 
+sigmas = cbind(x_s, (0.2+2*(x_s-0.5)^2)) %>% as.data.frame() %>% # TRUE SIGMA 
   mutate(type = "true sigma", iter = NA, degree = NA, dataset = NA) %>%
   rename(c("x" = "V1", "sigma" = "V2"))
 
@@ -262,49 +230,49 @@ sigmas = cbind(x_s, (exp(x_s))) %>% as.data.frame() %>% # TRUE SIGMA
 positions = sample(x = 1:500, size = 100, replace = FALSE)
 
 for(k in 1:nrow(matrix)){
-  for(i in 1:10){
+for(i in 1:10){
     for(n in positions){
-      sigmas_temp = SIGMA_BIG[[k]][[i]][,,n] %>% as.data.frame() %>%
-        rename(c("x" = "V1", "exp" = "V2", "quad" = "V3", "id" = "V4", "abs" = "V5")) %>% 
-        pivot_longer(cols = exp:abs, names_to = "type", values_to = "sigma") %>% 
-        mutate(iter = n, degree = i, dataset = k) %>% 
-        arrange(type, x)
-      
-      sigmas = rbind(sigmas, sigmas_temp)
-    }
-  }
+    sigmas_temp = SIGMA_BIG[[k]][[i]][,,n] %>% as.data.frame() %>%
+    rename(c("x" = "V1", "exp" = "V2", "quad" = "V3", "id" = "V4", "abs" = "V5")) %>% 
+    pivot_longer(cols = exp:abs, names_to = "type", values_to = "sigma") %>% 
+    mutate(iter = n, degree = i, dataset = k) %>% 
+    arrange(type, x)
+  
+  sigmas = rbind(sigmas, sigmas_temp)
+}
+}
   print(k)
 }
 
 
 # PLOT AND SAVE IMAGES
 # New facet label names for degree variable
-labs <- c("Chebyshev degree 2", "Chebyshev degree 3", "Chebyshev degree 4",
-          "Chebyshev degree 5", "Chebyshev degree 6", "Chebyshev degree 7",
-          "Chebyshev degree 8", "Chebyshev degree 9")
+labs <- c("Hermite degree 2", "Hermite degree 3", "Hermite degree 4",
+               "Hermite degree 5", "Hermite degree 6", "Hermite degree 7",
+               "Hermite degree 8", "Hermite degree 9")
 names(labs) <- c("2", "3", "4", "5", "6", "7", "8", "9")
 
 
 for(link in c("exp", "quad", "id", "abs")){
   for(k in 1:4){
-    ggsave(plot = sigmas %>%
-             filter(type %in% c("true sigma", link), dataset == k, degree %in% c(2, 3, 4, 5, 6, 7, 8, 9)) %>% 
-             ggplot(aes(x = x, y = sigma, group = iter)) +
-             geom_line(color = 'gray', size = 0.1) +
-             facet_wrap(degree~., ncol = 2, labeller = labeller(degree = labs)) +
-             geom_line(data = sigmas %>% filter(type == 'true sigma') %>%
-                         select(-degree), aes(x = x, y = sigma), color = 'black') +
-             ylim(c(0,30)) +
-             ylab(label = expression(paste(theta, "(", sigma, ")"))) + 
-             theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
-                                panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")),
-           path = paste0("PLOTS/"), 
-           filename = paste0('Link function_', link, '_', 'quantile_', matrix[k, 'tau'], '_', 
-                             'Sample_size_', matrix[k, 'n'], ".png"),
-           width = 5,
-           height = 7
-           
-    )
+  ggsave(plot = sigmas %>%
+  filter(type %in% c("true sigma", link), dataset == k, degree %in% c(2, 3, 4, 5, 6, 7, 8, 9)) %>% 
+  ggplot(aes(x = x, y = sigma, group = iter)) +
+  geom_line(color = 'gray', size = 0.1) +
+  facet_wrap(degree~., ncol = 2, labeller = labeller(degree = labs)) +
+  geom_line(data = sigmas %>% filter(type == 'true sigma') %>%
+              select(-degree), aes(x = x, y = sigma), color = 'black') +
+  ylim(c(0,30)) +
+  ylab(label = expression(paste(theta, "(", sigma, ")"))) + 
+  theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+                     panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")),
+  path = paste0("PLOTS/"), 
+  filename = paste0('Link function_', link, '_', 'quantile_', matrix[k, 'tau'], '_', 
+                   'Sample_size_', matrix[k, 'n'], ".png"),
+  width = 5,
+  height = 7
+
+  )
   }
 }
 
@@ -362,7 +330,7 @@ table_grid <- cbind(table1_styled, table2_styled, table3_styled, table4_styled)
 # TABLES FOR PROPOSED ESTIMATOR
 
 est_proposed = c("Laguerre H. (exp link)",
-                 "Laguerre H. (quad link)", "Laguerre H. (Id link)", "Laguerre H. (abs link)")
+              "Laguerre H. (quad link)", "Laguerre H. (Id link)", "Laguerre H. (abs link)")
 
 bias_tables_temp = bias_tables %>%
   filter(Estimator == 'Laguerre') %>% 
@@ -390,7 +358,7 @@ dat_tab_bias = bias_tables_proposed %>%
   select( -tau, -n)
 dat_tab_bias[dat_tab_bias$dataset == 1 & dat_tab_bias$degree == 0,] = 
   c(0,1, rep(bias_tables_literature %>% filter(dataset == 1, Estimator == 'Laguerre') %>%
-               select(-dataset, -degree) %>% select(beta_0, beta_1) %>% unname() , 4))
+                           select(-dataset, -degree) %>% select(beta_0, beta_1) %>% unname() , 4))
 
 dat_tab_bias[dat_tab_bias$dataset == 2 & dat_tab_bias$degree == 0,] = 
   c(0,2, rep(bias_tables_literature %>% filter(dataset == 2, Estimator == 'Laguerre') %>%
@@ -405,7 +373,7 @@ dat_tab_bias[dat_tab_bias$dataset == 4 & dat_tab_bias$degree == 0,] =
                select(-dataset, -degree) %>% select(beta_0, beta_1) %>% unname() , 4))
 
 
-
+  
 table1 = kable(dat_tab_bias %>% filter(dataset == 1) %>% select(-dataset), "latex", booktabs = T)
 table2 = kable(dat_tab_bias %>% filter(dataset == 2) %>% select(-dataset), "latex", booktabs = T) 
 table3 = kable(dat_tab_bias %>% filter(dataset == 3) %>% select(-dataset), "latex", booktabs = T)
@@ -456,10 +424,10 @@ for (k in 1:nrow(matrix)){
     ) +
     guides(label = 'none')
   #save plots ----
-  ggsave(bias_beta_0,
-         path = paste0("PLOTS/"), 
-         filename = paste0('Bias_beta_0_', 'quantile_', matrix[k, 'tau'], '_', 
-                           'Sample_size_', matrix[k, 'n'], ".png"), width = 7, height = 5)
+ggsave(bias_beta_0,
+path = paste0("PLOTS/"), 
+filename = paste0('Bias_beta_0_', 'quantile_', matrix[k, 'tau'], '_', 
+                  'Sample_size_', matrix[k, 'n'], ".png"), width = 7, height = 5)
   
   ggsave(bias_beta_1, path = paste0("PLOTS/"), 
          filename = paste0('Bias_beta_1_', 'quantile_', matrix[k, 'tau'], '_', 

@@ -19,7 +19,7 @@ package_load<-function(packages = NULL, quiet=TRUE,
 
 package_load(c('abind', 'foreach', 'doParallel', 'dplyr', 'devtools', 'pracma',
                'tidyr', 'ggplot2', 'kableExtra','quantreg', 'survival',
-               'orthopolynom', 'EQL', 'nloptr', 'SphericalCubature', 'polynom', 
+               'orthopolynom', 'EQL', 'nloptr', 'SphericalCubature', 'polynom',
                'stringr', 'ggrepel'))
 
 install_github("dmtzrea/Laguerre2")
@@ -31,12 +31,12 @@ setwd(dir = dirname(rstudioapi::getSourceEditorContext()$path))
 
 ## Find the number of cores in your system ----
 clno <- detectCores()
-cl   <- makeCluster(clno - 1,outfile="test2")
+cl   <- makeCluster(clno,outfile="test2")
 registerDoParallel(cl)
 
 ## LOAD LITERATURE AND DATASETS ----
 source(file = "Loading Literature.R")
-source(file = "DGP5.R")
+source(file = "DGP7.R")
 
 ## Identity link ----
 
@@ -55,7 +55,7 @@ h_list = vector(mode = "list", length = length(h))
 
 ## Iterative loop ----
 
-for (H in c(7,8,9,10)){
+for (H in h){
   out7 =
     foreach(k = 1:(dim(matrix)[1]), .combine = 'cube', .packages = 'abind', .multicombine = TRUE)%:%
     foreach(i=1:(dim(datasets[[k]])[3]),.packages=c('nloptr','SphericalCubature', 'EQL','orthopolynom',
@@ -126,7 +126,7 @@ for (H in c(7,8,9,10)){
                 estexp$theta, estquad$theta, est_id$theta, est_abs$theta,
                 estexp$theta_tilde, estquad$theta_tilde, est_id$theta_tilde, est_abs$theta_tilde)
             }
-  h_list[[which(h==H,arr.ind = TRUE)]] = out7
+#  h_list[[which(h==H,arr.ind = TRUE)]] = out7
   save(out7, file=paste0("results_", H, ".RData"))
 }
 
@@ -134,8 +134,14 @@ for (H in c(7,8,9,10)){
 #save(list=c("h_list"), file="results.RData")
 
 # LOAD RESULTS FROM DIFFERENT H's ----
-load("results_1_4.Rdata",  temp_env <- new.env())
-results1_4 <- as.list(temp_env)[[1]]
+load("results_1.Rdata",  temp_env <- new.env())
+results1 <- as.list(temp_env)[[1]]
+load("results_2.Rdata",  temp_env <- new.env())
+results2 <- as.list(temp_env)[[1]]
+load("results_3.Rdata",  temp_env <- new.env())
+results3 <- as.list(temp_env)[[1]]
+load("results_4.Rdata",  temp_env <- new.env())
+results4 <- as.list(temp_env)[[1]]
 load("results_5.Rdata",  temp_env <- new.env())
 results5 <- as.list(temp_env)[[1]]
 load("results_6.Rdata",  temp_env <- new.env())
@@ -148,11 +154,10 @@ load("results_9.Rdata",  temp_env <- new.env())
 results9 <- as.list(temp_env)[[1]]
 load("results_10.Rdata",  temp_env <- new.env())
 results10 <- as.list(temp_env)[[1]]
-h_list = c(results1_4, results5, results6, results7, 
+h_list = c(results1, results2, results3, results4, results5, results6, results7, 
            results8, results9, results10)
-rm(results1_4, results5, results6, results7, 
+rm(results1, results2, results3, results4, results5, results6, results7, 
    results8, results9, results10)
-
 
 ## Compute statistics ----
 
@@ -195,66 +200,66 @@ N = 500 #CHANGE THIS TO 500 FOR REAL SIMULATION
 links = list("exp", "quad", link, link2)
 
 for(k in 1:nrow(matrix)){
-  for(i in 1:10){
-    SIGMA[[i]] = array(dim = c(dim(datasets[[k]])[1], 5, length(1:N)))
-    for(n in 1:N){
-      
-      colnames(h_list[[i]]) = NULL
-      rownames(h_list[[i]]) = NULL
-      X_s = as.matrix(datasets[[k]][,2,n])
-      SIGMA[[i]][,1, n] = X_s
-      
-      # Compute sigma ----
-      start = (11*length(true_beta)) + 1 #To fetch the H coefficients.
-      start_theta = (11*length(true_beta)) + 4*(i + 1) + 1
-      start_theta_tilde = (11*length(true_beta)) + 4*(i + 1) + 8 + 1
-      
-      # LOOP OVER THE SIGMA ESTIMATORS
-      for(l in 1:4){
-        link_temp = links[[l]]
-        H = h_list[[i]][n, start:(start + i), k]
-        start = start + i + 1
-        
-        theta = h_list[[i]][n, start_theta:(start_theta + 1), k]
-        start_theta = start_theta + 2
-        
-        
-        theta_tilde = h_list[[i]][n, start_theta_tilde:(start_theta_tilde + 1), k]
-        start_theta_tilde = start_theta_tilde + 2
-        
-        
-        
-        Her = Her(X_s, deg=i, type=type)
-        if(link_temp == "exp"){
-          sigma = exp(Her%*%H)/exp(1)
-        }
-        
-        if(link_temp=="quad"){
-          sigma = (Her%*%H)^2
-        }
-        
-        if (link_temp!="exp" & link_temp!="quad"){
-          sigma = as.vector(unlist(lapply(link_temp, function(f) f(Her%*%H))[1]))
-          dsigma = as.vector(unlist(lapply(link_temp, function(f) f(Her%*%H))[2]))
-        }
-        sigma = sigma*sqrt(laguerre_var(theta, theta_tilde, matrix[k, 'tau']))
-        
-        SIGMA[[i]][,l + 1, n] = sigma
-        
-      }
-      
-      
-      
-      
+for(i in 1:10){
+  SIGMA[[i]] = array(dim = c(dim(datasets[[k]])[1], 5, length(1:N)))
+  for(n in 1:N){
+
+    colnames(h_list[[i]]) = NULL
+    rownames(h_list[[i]]) = NULL
+    X_s = as.matrix(datasets[[k]][,2,n])
+    SIGMA[[i]][,1, n] = X_s
+
+    # Compute sigma ----
+    start = (11*length(true_beta)) + 1 #To fetch the H coefficients.
+    start_theta = (11*length(true_beta)) + 4*(i + 1) + 1
+    start_theta_tilde = (11*length(true_beta)) + 4*(i + 1) + 8 + 1
+
+    # LOOP OVER THE SIGMA ESTIMATORS
+    for(l in 1:4){
+    link_temp = links[[l]]
+    H = h_list[[i]][n, start:(start + i), k]
+    start = start + i + 1
+
+    theta = h_list[[i]][n, start_theta:(start_theta + 1), k]
+    start_theta = start_theta + 2
+
+
+    theta_tilde = h_list[[i]][n, start_theta_tilde:(start_theta_tilde + 1), k]
+    start_theta_tilde = start_theta_tilde + 2
+
+
+
+    Her = Her(X_s, deg=i, type=type)
+    if(link_temp == "exp"){
+      sigma = exp(Her%*%H)/exp(1)
     }
-  }
-  
+
+    if(link_temp=="quad"){
+      sigma = (Her%*%H)^2
+    }
+
+    if (link_temp!="exp" & link_temp!="quad"){
+      sigma = as.vector(unlist(lapply(link_temp, function(f) f(Her%*%H))[1]))
+      dsigma = as.vector(unlist(lapply(link_temp, function(f) f(Her%*%H))[2]))
+    }
+    sigma = sigma*sqrt(laguerre_var(theta, theta_tilde, matrix[k, 'tau']))
+
+    SIGMA[[i]][,l + 1, n] = sigma
+
+    }
+
+
+
+
+}
+}
+
   SIGMA_BIG[[k]] = SIGMA
 }
 
 # Arrange sigmas in a dataframe
 x_s  = as.matrix(datasets[[1]][,2,1])
-sigmas = cbind(x_s, (exp(x_s))) %>% as.data.frame() %>% # TRUE SIGMA 
+sigmas = cbind(x_s, (exp(2*x_s) - exp(-4) + 0.4)) %>% as.data.frame() %>% # TRUE SIGMA 
   mutate(type = "true sigma", iter = NA, degree = NA, dataset = NA) %>%
   rename(c("x" = "V1", "sigma" = "V2"))
 
