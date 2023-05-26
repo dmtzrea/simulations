@@ -134,23 +134,21 @@ for (H in c(7,8,9,10)){
 #save(list=c("h_list"), file="results.RData")
 
 # LOAD RESULTS FROM DIFFERENT H's ----
-load("results_1_4.Rdata",  temp_env <- new.env())
-results1_4 <- as.list(temp_env)[[1]]
-load("results_5.Rdata",  temp_env <- new.env())
-results5 <- as.list(temp_env)[[1]]
-load("results_6.Rdata",  temp_env <- new.env())
-results6 <- as.list(temp_env)[[1]]
+load("results1_4.Rdata",  temp_env <- new.env())
+results1_4 <- as.list(temp_env)[[1]][c(1:4)]
+load("results_5_6.Rdata",  temp_env <- new.env())
+results5_6 <- as.list(temp_env)[[1]][c(5:6)]
 load("results_7.Rdata",  temp_env <- new.env())
-results7 <- as.list(temp_env)[[1]]
+results7 <- as.list(temp_env)
 load("results_8.Rdata",  temp_env <- new.env())
-results8 <- as.list(temp_env)[[1]]
+results8 <- as.list(temp_env)
 load("results_9.Rdata",  temp_env <- new.env())
-results9 <- as.list(temp_env)[[1]]
+results9 <- as.list(temp_env)
 load("results_10.Rdata",  temp_env <- new.env())
-results10 <- as.list(temp_env)[[1]]
-h_list = c(results1_4, results5, results6, results7, 
+results10 <- as.list(temp_env)
+h_list = c(results1_4, results5_6, results7, 
            results8, results9, results10)
-rm(results1_4, results5, results6, results7, 
+rm(results1_4, results5_6, results7, 
    results8, results9, results10)
 
 
@@ -294,7 +292,7 @@ for(link in c("exp", "quad", "id", "abs")){
              facet_wrap(degree~., ncol = 2, labeller = labeller(degree = labs)) +
              geom_line(data = sigmas %>% filter(type == 'true sigma') %>%
                          select(-degree), aes(x = x, y = sigma), color = 'black') +
-             ylim(c(0,30)) +
+             ylim(c(0,10)) +
              ylab(label = expression(paste(theta, "(", sigma, ")"))) + 
              theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
                                 panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")),
