@@ -31,7 +31,7 @@ setwd(dir = dirname(rstudioapi::getSourceEditorContext()$path))
 
 ## Find the number of cores in your system ----
 clno <- detectCores()
-cl   <- makeCluster(clno -1 ,outfile="test2") # If you want to use computer, choose clno - 1 to leave one core free
+cl   <- makeCluster(clno ,outfile="test2") # If you want to use computer, choose clno - 1 to leave one core free
 registerDoParallel(cl)
 
 ## LOAD LITERATURE AND DATASETS ----
@@ -55,7 +55,7 @@ h_list = vector(mode = "list", length = length(h))
 
 ## Iterative loop ----
 
-for (H in h){
+for (H in c(1,2,3)){
   out7 =
     foreach(k = 1:(dim(matrix)[1]), .combine = 'cube', .packages = 'abind', .multicombine = TRUE)%:%
     foreach(i=1:(dim(datasets[[k]])[3]),.packages=c('nloptr','SphericalCubature', 'EQL','orthopolynom',
