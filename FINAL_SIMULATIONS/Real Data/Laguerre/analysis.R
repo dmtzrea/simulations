@@ -38,7 +38,7 @@ library(survival)
 library(KMsurv)
 library(dplyr)
 library(tidyr)
-# btrial 
+# burn
 data(burn)
 X = as.matrix(cbind(rep(1, nrow(burn)),burn$Z4, model.matrix(~burn$Z2)[, 2]))
 X_s = as.matrix(burn %>% select(Z4))
@@ -221,7 +221,7 @@ cube = function(...){
 # Bootstrap samples ----
 data(burn)
 
-B = 300
+B = 300 #NUMBER OF BOOTSTRAP SAMPLES TO BE DRAWN
 boot_samples = array(0, dim = c(nrow(burn), ncol(burn), B))
 dimnames(boot_samples)[[2]] = as.list(colnames(burn))
 
