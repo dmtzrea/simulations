@@ -55,7 +55,7 @@ h_list = vector(mode = "list", length = length(h))
 
 ## Iterative loop ----
 
-for (H in c(7,8,9,10)){
+for (H in c(1,2,3,4,5,6,7,8,9,10)){
   out7 =
     foreach(k = 1:(dim(matrix)[1]), .combine = 'cube', .packages = 'abind', .multicombine = TRUE)%:%
     foreach(i=1:(dim(datasets[[k]])[3]),.packages=c('nloptr','SphericalCubature', 'EQL','orthopolynom',
@@ -135,25 +135,25 @@ for (H in c(7,8,9,10)){
 
 # LOAD RESULTS FROM DIFFERENT H's ----
 load("results_1.Rdata",  temp_env <- new.env())
-results1 <- as.list(temp_env)[[1]]
+results1 <- as.list(temp_env)
 load("results_2.Rdata",  temp_env <- new.env())
-results2 <- as.list(temp_env)[[1]]
+results2 <- as.list(temp_env)
 load("results_3.Rdata",  temp_env <- new.env())
-results3 <- as.list(temp_env)[[1]]
+results3 <- as.list(temp_env)
 load("results_4.Rdata",  temp_env <- new.env())
-results4 <- as.list(temp_env)[[1]]
+results4 <- as.list(temp_env)
 load("results_5.Rdata",  temp_env <- new.env())
-results5 <- as.list(temp_env)[[1]]
+results5 <- as.list(temp_env)
 load("results_6.Rdata",  temp_env <- new.env())
-results6 <- as.list(temp_env)[[1]]
+results6 <- as.list(temp_env)
 load("results_7.Rdata",  temp_env <- new.env())
-results7 <- as.list(temp_env)[[1]]
+results7 <- as.list(temp_env)
 load("results_8.Rdata",  temp_env <- new.env())
-results8 <- as.list(temp_env)[[1]]
+results8 <- as.list(temp_env)
 load("results_9.Rdata",  temp_env <- new.env())
-results9 <- as.list(temp_env)[[1]]
+results9 <- as.list(temp_env)
 load("results_10.Rdata",  temp_env <- new.env())
-results10 <- as.list(temp_env)[[1]]
+results10 <- as.list(temp_env)
 h_list = c(results1, results2, results3, results4, results5, results6, results7, 
            results8, results9, results10)
 rm(results1, results2, results3, results4, results5, results6, results7, 
@@ -189,6 +189,21 @@ for(i in 1:10){
     rownames(h_list[[i]]) = NULL
     MSE[[i]][,,k] = ((h_list[[i]][,1:(11*length(true_beta)),k] - matrix(true_beta, nrow = dim(h_list[[i]])[1], ncol = (11*length(true_beta)), byrow = TRUE))^2 %>%
                         colMeans() %>% matrix(ncol = length(true_beta), byrow = TRUE))
+  }
+}
+
+
+# MedSE COMPUTATION
+
+MedSE = vector(mode = "list", length = length(h))
+
+for(i in 1:10){
+  MedSE[[i]] = array(dim = c(11, length(true_beta), nrow(matrix)))
+  for(k in 1:nrow(matrix)){
+    colnames(h_list[[i]]) = NULL
+    rownames(h_list[[i]]) = NULL
+    MedSE[[i]][,,k] = (abs(h_list[[i]][,1:(11*length(true_beta)),k] - matrix(true_beta, nrow = dim(h_list[[i]])[1], ncol = (11*length(true_beta)), byrow = TRUE)) %>%
+                       matrixStats::colMedians() %>% matrix(ncol = length(true_beta), byrow = TRUE))
   }
 }
 
@@ -300,7 +315,7 @@ for(link in c("exp", "quad", "id", "abs")){
              facet_wrap(degree~., ncol = 2, labeller = labeller(degree = labs)) +
              geom_line(data = sigmas %>% filter(type == 'true sigma') %>%
                          select(-degree), aes(x = x, y = sigma), color = 'black') +
-             ylim(c(0,30)) +
+             ylim(c(0,7)) +
              ylab(label = expression(paste(theta, "(", sigma, ")"))) + 
              theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
                                 panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")),
@@ -637,3 +652,166 @@ for (k in 1:nrow(matrix)){
 }
 
 
+
+
+# GENERATE MedSE TABLES FOR LATEX FILE ----
+
+est_names = c("Omni", "P & W", "W & W", "W & W (CV)", 
+              "Portnoy", "DB et. al.", "Laguerre", "Laguerre H. (exp link)",
+              "Laguerre H. (quad link)", "Laguerre H. (Id link)", "Laguerre H. (abs link)")
+
+medse_tables = c()
+for(i in 1:10){
+  
+  medse_temp = c()
+  for(k in 1:nrow(matrix)){
+    medse_temp2 = MedSE[[i]][,,k] %>% round(digits = 4) %>% as.data.frame() %>% 
+      mutate(Estimator = est_names, tau = matrix[k, "tau"], n = matrix[k, "n"], degree = i,
+             dataset = k) %>%
+      rename(c("beta_0" = "V1", "beta_1" = "V2"))
+    
+    medse_temp = rbind(medse_temp, medse_temp2)
+  }
+  medse_tables = rbind(medse_tables, medse_temp)
+}
+
+# TABLES LITERATURE
+medse_tables_literature = medse_tables %>%
+  filter(degree == 1, Estimator %in% c("Omni", "P & W", "W & W", "W & W (CV)", 
+                                       "Portnoy", "DB et. al.", "Laguerre"))
+
+# apply styling to tables
+table1_styled <- kable(medse_tables_literature %>% filter(dataset == 1) %>%
+                         select(-dataset, -degree), "latex", booktabs = T) %>%
+  kable_styling(bootstrap_options = c("striped", "hover")) %>%
+  column_spec(1, width = "50px")
+
+table2_styled <- kable(medse_tables_literature %>% filter(dataset == 2) %>%
+                         select(-dataset, -degree), "latex", booktabs = T) %>%
+  kable_styling(bootstrap_options = c("striped", "hover")) %>%
+  column_spec(1, width = "50px")
+
+table3_styled <- kable(medse_tables_literature %>% filter(dataset == 3) %>%
+                         select(-dataset, -degree), "latex", booktabs = T) %>%
+  kable_styling(bootstrap_options = c("striped", "hover")) %>%
+  column_spec(1, width = "50px")
+
+table4_styled <- kable(medse_tables_literature %>% filter(dataset == 4) %>%
+                         select(-dataset, -degree), "latex", booktabs = T) %>%
+  kable_styling(bootstrap_options = c("striped", "hover")) %>%
+  column_spec(1, width = "50px")
+
+# combine tables into a grid
+table_grid <- cbind(table1_styled, table2_styled, table3_styled, table4_styled)
+
+
+# TABLES FOR PROPOSED ESTIMATOR
+
+est_proposed = c("Laguerre H. (exp link)",
+                 "Laguerre H. (quad link)", "Laguerre H. (Id link)", "Laguerre H. (abs link)")
+
+medse_tables_temp = medse_tables %>%
+  filter(Estimator == 'Laguerre') %>% 
+  mutate(degree = ifelse(Estimator == 'Laguerre', 0, degree)) %>%
+  arrange(dataset) %>%
+  group_by(dataset) %>%
+  slice_head(n = 4) %>% 
+  mutate(Estimator = est_proposed) %>%
+  ungroup()
+
+medse_tables_proposed = medse_tables %>%
+  filter(Estimator %in% est_proposed) %>%
+  bind_rows(medse_tables_temp) %>%
+  arrange(dataset, Estimator, degree) %>%
+  pivot_wider(names_from = Estimator, values_from = c(beta_0, beta_1)) 
+
+medse_tables_proposed = medse_tables_proposed  %>%
+  select(tau, n, degree, dataset,
+         ends_with("(Id link)"), 
+         ends_with("(abs link)"),
+         ends_with("(exp link)"),
+         ends_with("(quad link)"))
+
+dat_tab_medse = medse_tables_proposed %>%
+  select( -tau, -n)
+dat_tab_medse[dat_tab_medse$dataset == 1 & dat_tab_medse$degree == 0,] = 
+  c(0,1, rep(medse_tables_literature %>% filter(dataset == 1, Estimator == 'Laguerre') %>%
+               select(-dataset, -degree) %>% select(beta_0, beta_1) %>% unname() , 4))
+
+dat_tab_medse[dat_tab_medse$dataset == 2 & dat_tab_medse$degree == 0,] = 
+  c(0,2, rep(medse_tables_literature %>% filter(dataset == 2, Estimator == 'Laguerre') %>%
+               select(-dataset, -degree) %>% select(beta_0, beta_1) %>% unname() , 4))
+
+dat_tab_medse[dat_tab_medse$dataset == 3 & dat_tab_medse$degree == 0,] = 
+  c(0,3, rep(medse_tables_literature %>% filter(dataset == 3, Estimator == 'Laguerre') %>%
+               select(-dataset, -degree) %>% select(beta_0, beta_1) %>% unname() , 4))
+
+dat_tab_medse[dat_tab_medse$dataset == 4 & dat_tab_medse$degree == 0,] = 
+  c(0,4, rep(medse_tables_literature %>% filter(dataset == 4, Estimator == 'Laguerre') %>%
+               select(-dataset, -degree) %>% select(beta_0, beta_1) %>% unname() , 4))
+
+
+
+table1 = kable(dat_tab_medse %>% filter(dataset == 1) %>% select(-dataset), "latex", booktabs = T)
+table2 = kable(dat_tab_medse %>% filter(dataset == 2) %>% select(-dataset), "latex", booktabs = T) 
+table3 = kable(dat_tab_medse %>% filter(dataset == 3) %>% select(-dataset), "latex", booktabs = T)
+table4 = kable(dat_tab_medse %>% filter(dataset == 4) %>% select(-dataset), "latex", booktabs = T)
+
+
+
+
+
+# MedSE PLOTS ----
+
+test = dat_tab_medse %>% pivot_longer(cols = starts_with("beta_0"), names_to = "Estimator", values_to = "beta_0") %>%
+  select(degree, dataset, Estimator, beta_0) %>% mutate(Estimator = str_remove(Estimator, "beta_0_"))
+test2 = dat_tab_medse %>% pivot_longer(cols = starts_with("beta_1"), names_to = "Estimator", values_to = "beta_1") %>%
+  select(degree, dataset, Estimator, beta_1) %>% mutate(Estimator = str_remove(Estimator, "beta_1_"))
+test_final = test %>% left_join(test2)
+
+
+
+
+for (k in 1:nrow(matrix)){
+  # compute plots ----
+  medse_beta_0 = test_final %>% filter(dataset == k, Estimator %in% c('Laguerre H. (abs link)', 'Laguerre H. (exp link)')) %>%
+    ggplot(aes(x = degree, y = abs(beta_0))) +
+    geom_line(aes(group = Estimator, color = Estimator)) + 
+    theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+                       panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")) +
+    ylab(label = "MedSE") +
+    geom_hline(data = medse_tables_literature %>%
+                 filter(dataset == k), mapping = aes(yintercept = abs(beta_0)), linetype = 'dashed')  +
+    geom_text_repel(data = medse_tables_literature %>%
+                      filter(dataset == k), aes(
+                        x = 12, y = abs(beta_0), label = Estimator
+                      ),
+                    hjust = 1
+    ) +
+    guides(label = 'none')
+  
+  medse_beta_1 = test_final %>% filter(dataset == k, Estimator %in% c('Laguerre H. (abs link)', 'Laguerre H. (exp link)')) %>%
+    ggplot(aes(x = degree, y = abs(beta_1))) +
+    geom_line(aes(group = Estimator, color = Estimator)) + 
+    theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+                       panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")) +
+    ylab(label = "MedSE") +
+    geom_hline(data = medse_tables_literature %>%
+                 filter(dataset == k), mapping = aes(yintercept = abs(beta_1)), linetype = 'dashed')  +
+    geom_text_repel(data = medse_tables_literature %>%
+                      filter(dataset == k), aes(
+                        x = 12, y = abs(beta_1), label = Estimator
+                      ),
+                    hjust = 1
+    ) +
+    guides(label = 'none')
+  #save plots ----
+  ggsave(medse_beta_0,
+         path = paste0("PLOTS/"), 
+         filename = paste0('MedSE_beta_0_', 'quantile_', matrix[k, 'tau'], '_', 
+                           'Sample_size_', matrix[k, 'n'], ".png"), width = 7, height = 5)
+  
+  ggsave(medse_beta_1, path = paste0("PLOTS/"), 
+         filename = paste0('MedSE_beta_1_', 'quantile_', matrix[k, 'tau'], '_', 
+                           'Sample_size_', matrix[k, 'n'], ".png"), width = 7, height = 5)
+}
