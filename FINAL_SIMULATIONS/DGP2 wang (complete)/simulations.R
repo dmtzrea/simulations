@@ -1,21 +1,32 @@
-## Load Libraries ----
-library("abind")
-library(foreach)
-library(doParallel)
-library(dplyr)
-library(Laguerre)
-library(pracma)
-library(tidyr)
-library(ggplot2)
-library(kableExtra)
-library(here)
-library(stringr)
-library(geomtextpath)
-library(ggrepel)
-library(ggpubr)
+# Function to check libraries----
+package_load<-function(packages = NULL, quiet=TRUE, 
+                       verbose=FALSE, warn.conflicts=FALSE){
+  
+  # download required packages if they're not already
+  
+  pkgsToDownload<- packages[!(packages  %in% installed.packages()[,"Package"])]
+  if(length(pkgsToDownload)>0)
+    install.packages(pkgsToDownload, repos="http://cran.us.r-project.org", 
+                     quiet=quiet, verbose=verbose)
+  
+  # then load them
+  for(i in 1:length(packages))
+    require(packages[i], character.only=T, quietly=quiet, 
+            warn.conflicts=warn.conflicts)
+}
 
+## Load Libraries ----
+
+package_load(c('abind', 'foreach', 'doParallel', 'dplyr', 'devtools', 'pracma',
+               'tidyr', 'ggplot2', 'kableExtra','quantreg', 'survival',
+               'orthopolynom', 'EQL', 'nloptr', 'SphericalCubature', 'polynom',
+               'stringr', 'ggrepel'))
+
+install_github("dmtzrea/Laguerre2")
+library(Laguerre)
 
 ## SET WD  ----
+# sets wd to the path where this script lives
 setwd(dir = dirname(rstudioapi::getSourceEditorContext()$path))
 
 ## Find the number of cores in your system ----
@@ -121,6 +132,9 @@ for (H in h){
 ## Save results ----
 save(list=c("h_list"), file="results.RData")
 
+
+load("results.Rdata",  temp_env <- new.env())
+h_list <- as.list(temp_env)[[1]]
 
 ## Compute statistics ----
 
